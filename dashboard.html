@@ -158,8 +158,10 @@ const METRICS = 'impressions,reach,frequency,clicks,unique_clicks,ctr,unique_ctr
 let globalData = null;
 let charts = {};
 
+const DEFAULT_TOKEN = 'EAAVJJGQJPfUBQ7hEGsZCNUMVLyuqUZAOy4dLF9poHOVSdhbN7kVn8vCcfOX2xmoC1kZCMik5vb4Md2bq7roQRLfmAXUjHzBOIkFrUxqI1IQsT7WPvcbCqq6AqLKpxAyqEClUDcYZCEzcJAjp8YqVPcaVPKHkPm19lCNhsvZAqu5Ay3H8bOYMnlRvZBZCyjsxHwZCLr4BeiPBUOVtnHApCqnk0zsyaQPdtOreiZAYiMymVQQOJr3hzX9hZCPaRDSoIdJOd8q5tn36vMtUICzkAxnHZBw07LU';
+
 function getToken() {
-  return localStorage.getItem('meta_token') || '';
+  return localStorage.getItem('meta_token') || DEFAULT_TOKEN;
 }
 
 async function apiFetch(endpoint) {
@@ -715,19 +717,8 @@ window.addEventListener('DOMContentLoaded', () => {
       }
     }
   } catch(e) {}
-  // Has token but no cache - show start screen
-  document.getElementById('app').innerHTML = `
-    <div class="center-screen">
-      <div style="text-align:center">
-        <div style="font-size:48px;margin-bottom:16px">📊</div>
-        <p style="color:#fff;font-size:18px;font-weight:700;margin-bottom:6px">Meta Campaign Analytics</p>
-        <p style="color:var(--muted);font-size:13px;margin-bottom:24px">Token configurado. Clique para buscar seus dados.</p>
-        <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
-          <button class="btn btn-primary" onclick="loadData()" style="font-size:15px;padding:12px 28px">🚀 Buscar Dados da Meta API</button>
-          <button class="btn" style="background:var(--border);color:var(--text)" onclick="showTokenSetup(null)">⚙ Trocar Token</button>
-        </div>
-      </div>
-    </div>`;
+  // Has token but no cache - auto load
+  loadData();
 });
 </script>
 </body>
