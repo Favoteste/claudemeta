@@ -152,16 +152,21 @@
 </div>
 
 <script>
-const TOKEN = '1487795529530869|ZN-LEkit58D0lEJd2-wwkHGJIbA';
 const BASE = 'https://graph.facebook.com/v21.0';
 const METRICS = 'impressions,reach,frequency,clicks,unique_clicks,ctr,unique_ctr,cpc,cpm,cpp,spend,actions,cost_per_action_type,purchase_roas,outbound_clicks,outbound_clicks_ctr';
 
 let globalData = null;
 let charts = {};
 
+function getToken() {
+  return localStorage.getItem('meta_token') || '';
+}
+
 async function apiFetch(endpoint) {
+  const token = getToken();
+  if (!token) throw new Error('Token não configurado. Insira seu User Access Token.');
   const sep = endpoint.includes('?') ? '&' : '?';
-  const url = `${BASE}/${endpoint}${sep}access_token=${TOKEN}`;
+  const url = `${BASE}/${endpoint}${sep}access_token=${token}`;
   const res = await fetch(url);
   const json = await res.json();
   if (json.error) throw new Error(json.error.message + ' (code: ' + json.error.code + ')');
@@ -309,16 +314,25 @@ async function loadData() {
 
     renderDashboard();
   } catch(e) {
-    document.getElementById('app').innerHTML = `
-      <div class="center-screen">
-        <div class="error-box">
-          <div style="font-size:40px;margin-bottom:12px">⚠️</div>
-          <h2>Erro ao buscar dados</h2>
-          <div class="error-msg">${e.message}</div>
-          <p style="color:var(--muted);font-size:12px;margin-bottom:16px">Verifique se o token está válido e tem permissões de leitura de anúncios (ads_read).</p>
-          <button class="btn btn-primary" onclick="loadData()">Tentar Novamente</button>
-        </div>
-      </div>`;
+    // If it's an auth error, show the token setup screen
+    const isAuthError = e.message.includes('2500') || e.message.includes('190') || e.message.includes('access token') || e.message.includes('Token');
+    if (isAuthError) {
+      showTokenSetup(e.message);
+    } else {
+      document.getElementById('app').innerHTML = `
+        <div class="center-screen">
+          <div class="error-box">
+            <div style="font-size:40px;margin-bottom:12px">⚠️</div>
+            <h2>Erro ao buscar dados</h2>
+            <div class="error-msg">${e.message}</div>
+            <p style="color:var(--muted);font-size:12px;margin-bottom:16px">Verifique se o token está válido e tem permissões de leitura de anúncios (ads_read).</p>
+            <div style="display:flex;gap:10px;justify-content:center">
+              <button class="btn btn-primary" onclick="loadData()">Tentar Novamente</button>
+              <button class="btn" style="background:var(--border);color:var(--text)" onclick="showTokenSetup(null)">⚙ Trocar Token</button>
+            </div>
+          </div>
+        </div>`;
+    }
   }
 }
 
@@ -337,6 +351,7 @@ function renderDashboard() {
     </div>
     <div class="header-actions">
       <span class="tag">Gerado: ${new Date(d.generated_at).toLocaleString('pt-BR')}</span>
+      <button class="btn" style="background:var(--border);color:var(--text)" onclick="showTokenSetup(null)">⚙ Token</button>
       <button class="btn btn-primary" id="refresh-btn" onclick="loadData()">⟳ Atualizar</button>
     </div>
   </header>
@@ -633,20 +648,86 @@ function renderCharts() {
   });
 }
 
+function showTokenSetup(errorMsg) {
+  document.getElementById('app').innerHTML = `
+    <div class="center-screen">
+      <div style="max-width:580px;width:100%;padding:0 16px">
+        <div class="card" style="padding:32px">
+          <div style="text-align:center;margin-bottom:24px">
+            <div style="font-size:48px;margin-bottom:12px">🔑</div>
+            <h2 style="color:#fff;font-size:20px;margin-bottom:8px">Configure seu Access Token</h2>
+            <p style="color:var(--muted);font-size:13px">É necessário um <strong style="color:#fff">User Access Token</strong> com permissão <code style="background:#000;padding:2px 6px;border-radius:4px;color:var(--green)">ads_read</code></p>
+          </div>
+
+          ${errorMsg ? `<div style="background:rgba(255,68,102,.1);border:1px solid rgba(255,68,102,.3);border-radius:8px;padding:12px;margin-bottom:20px;color:var(--red);font-size:12px;font-family:monospace">⚠ ${errorMsg}</div>` : ''}
+
+          <div style="background:var(--bg);border-radius:10px;padding:16px;margin-bottom:20px">
+            <p style="font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px">📖 Como obter o token:</p>
+            <ol style="font-size:12px;color:var(--text);line-height:1.8;padding-left:18px">
+              <li>Acesse <a href="https://developers.facebook.com/tools/explorer/" target="_blank" style="color:var(--blue)">developers.facebook.com/tools/explorer</a></li>
+              <li>Selecione seu App no menu superior</li>
+              <li>Clique em <strong>"Generate Access Token"</strong></li>
+              <li>Adicione as permissões: <code style="background:#000;padding:1px 5px;border-radius:3px;color:var(--green)">ads_read</code> e <code style="background:#000;padding:1px 5px;border-radius:3px;color:var(--green)">ads_management</code></li>
+              <li>Copie o token gerado (começa com <code style="background:#000;padding:1px 5px;border-radius:3px;color:var(--yellow)">EAA...</code>)</li>
+            </ol>
+            <p style="font-size:11px;color:var(--muted);margin-top:10px">⚡ Tokens do Graph Explorer expiram em ~1 hora. Para uso contínuo, gere um token de longa duração.</p>
+          </div>
+
+          <label style="font-size:12px;color:var(--muted);font-weight:600;display:block;margin-bottom:6px">Cole seu User Access Token aqui:</label>
+          <textarea id="token-input" rows="3" placeholder="EAAxxxxxxxxxxxxxxx..." style="width:100%;background:#000;border:1px solid var(--border);color:#fff;border-radius:8px;padding:10px;font-size:12px;font-family:monospace;resize:vertical;outline:none">${getToken()}</textarea>
+
+          <div style="display:flex;gap:10px;margin-top:16px">
+            <button class="btn btn-primary" style="flex:1;padding:12px" onclick="saveTokenAndLoad()">
+              🚀 Salvar Token e Buscar Dados
+            </button>
+          </div>
+          <p style="font-size:11px;color:var(--muted);text-align:center;margin-top:10px">O token é salvo apenas no seu browser (localStorage).</p>
+        </div>
+      </div>
+    </div>`;
+}
+
+function saveTokenAndLoad() {
+  const token = document.getElementById('token-input').value.trim();
+  if (!token) { alert('Cole o token antes de continuar.'); return; }
+  localStorage.setItem('meta_token', token);
+  // Clear cached data to force fresh fetch
+  localStorage.removeItem('meta_dashboard_data');
+  loadData();
+}
+
 // Check localStorage cache
 window.addEventListener('DOMContentLoaded', () => {
+  const token = getToken();
+  if (!token) {
+    showTokenSetup(null);
+    return;
+  }
   try {
     const cached = localStorage.getItem('meta_dashboard_data');
     if (cached) {
       const parsed = JSON.parse(cached);
       const age = Date.now() - new Date(parsed.generated_at).getTime();
-      if (age < 3600000) { // 1 hour
+      if (age < 3600000) {
         globalData = parsed;
         renderDashboard();
         return;
       }
     }
   } catch(e) {}
+  // Has token but no cache - show start screen
+  document.getElementById('app').innerHTML = `
+    <div class="center-screen">
+      <div style="text-align:center">
+        <div style="font-size:48px;margin-bottom:16px">📊</div>
+        <p style="color:#fff;font-size:18px;font-weight:700;margin-bottom:6px">Meta Campaign Analytics</p>
+        <p style="color:var(--muted);font-size:13px;margin-bottom:24px">Token configurado. Clique para buscar seus dados.</p>
+        <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+          <button class="btn btn-primary" onclick="loadData()" style="font-size:15px;padding:12px 28px">🚀 Buscar Dados da Meta API</button>
+          <button class="btn" style="background:var(--border);color:var(--text)" onclick="showTokenSetup(null)">⚙ Trocar Token</button>
+        </div>
+      </div>
+    </div>`;
 });
 </script>
 </body>
