@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-primary: #0a0a0f;
+  --bg-card: #13131f;
+  --bg-card-hover: #1a1a2e;
+  --border: #2a2a4a;
+  --text-primary: #e8e8f0;
+  --text-secondary: #8888aa;
+  --meta-blue: #1877F2;
+  --meta-green: #00C896;
+  --meta-red: #FF4466;
+  --meta-yellow: #FFB800;
+  --meta-purple: #9C6FFF;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  min-height: 100vh;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+
+.glass-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  transition: border-color 0.2s;
+}
+
+.glass-card:hover {
+  border-color: #4a4a7a;
+}
+
+.metric-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.badge-success { background: rgba(0, 200, 150, 0.15); color: #00C896; }
+.badge-warning { background: rgba(255, 184, 0, 0.15); color: #FFB800; }
+.badge-error { background: rgba(255, 68, 102, 0.15); color: #FF4466; }
+.badge-info { background: rgba(24, 119, 242, 0.15); color: #60A5FA; }
+
+.status-active { color: #00C896; }
+.status-paused { color: #FFB800; }
+.status-archived { color: #8888aa; }
+
+.recharts-tooltip-wrapper .recharts-default-tooltip {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 8px !important;
+}
