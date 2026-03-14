@@ -243,7 +243,16 @@ async function loadData() {
     const me = await apiFetch('me?fields=id,name');
 
     setMsg('Buscando contas de anúncio...', `Usuário: ${me.name}`);
-    const accounts = await fetchAllPages(`${me.id}/adaccounts?fields=id,name,account_status,currency,amount_spent&limit=100`);
+    const allAccounts = await fetchAllPages(`${me.id}/adaccounts?fields=id,name,account_status,currency,amount_spent&limit=100`);
+
+    // Filtrar apenas contas FAVO / FAVOHUB
+    const FAVO_FILTER = /favo/i;
+    const accounts = allAccounts.filter(a => FAVO_FILTER.test(a.name || ''));
+
+    if (accounts.length === 0) {
+      // Fallback: use all accounts but filter campaigns by name
+      accounts.push(...allAccounts);
+    }
 
     let allCampaigns = [];
     const allInsights = {};
@@ -251,7 +260,10 @@ async function loadData() {
     for (let i = 0; i < accounts.length; i++) {
       const acc = accounts[i];
       setMsg(`Buscando campanhas (conta ${i+1}/${accounts.length})...`, acc.name || acc.id);
-      const campaigns = await fetchAllPages(`${acc.id}/campaigns?fields=id,name,status,objective,created_time,start_time,stop_time,daily_budget,lifetime_budget&limit=100`);
+      const rawCampaigns = await fetchAllPages(`${acc.id}/campaigns?fields=id,name,status,objective,created_time,start_time,stop_time,daily_budget,lifetime_budget&limit=100`);
+      // Filtrar campanhas pelo nome da conta FAVO ou nome da campanha contendo FAVO
+      const isFavoAccount = FAVO_FILTER.test(acc.name || '');
+      const campaigns = isFavoAccount ? rawCampaigns : rawCampaigns.filter(c => FAVO_FILTER.test(c.name || ''));
       allCampaigns = allCampaigns.concat(campaigns);
 
       for (let j = 0; j < campaigns.length; j++) {
@@ -309,7 +321,7 @@ async function loadData() {
     summary.avg_ctr = summary.impressions>0 ? (summary.clicks/summary.impressions*100) : 0;
     summary.avg_cpc = summary.clicks>0 ? (summary.spend/summary.clicks) : 0;
 
-    globalData = { user:me, accounts, summary, campaigns, generated_at:new Date().toISOString() };
+    globalData = { user:me, accounts, all_accounts: allAccounts, summary, campaigns, generated_at:new Date().toISOString() };
 
     // Save to localStorage
     try { localStorage.setItem('meta_dashboard_data', JSON.stringify(globalData)); } catch(e){}
@@ -347,8 +359,8 @@ function renderDashboard() {
     <div class="logo">
       <div class="logo-icon">M</div>
       <div class="header-title">
-        <h1>Meta Campaign Analytics</h1>
-        <p>${d.user.name} &bull; Todo o tempo &bull; ${d.accounts.length} conta(s)</p>
+        <h1>FAVOHUB — Campaign Analytics</h1>
+        <p>${d.user.name} &bull; Todo o tempo &bull; ${d.accounts.map(a=>a.name||a.id).join(', ')}</p>
       </div>
     </div>
     <div class="header-actions">
