@@ -223,6 +223,48 @@ function fmt(n, pre='', suf='', dec=2) {
 }
 function fmtN(n) { return (n||0).toLocaleString('pt-BR'); }
 
+function showAccountPicker(accounts, me) {
+  return new Promise((resolve) => {
+    const statusLabel = {1:'Ativa',2:'Desativada',3:'Não configurada',7:'Pendente',8:'Pendente revisão',9:'Em revisão',100:'Pendente fechamento',101:'Fechada',201:'Qualquer advertência'};
+    document.getElementById('app').innerHTML = `
+      <div style="min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px">
+        <div style="max-width:680px;width:100%">
+          <div class="card" style="padding:32px">
+            <h2 style="color:#fff;font-size:20px;margin-bottom:4px">Selecione a conta de anúncio</h2>
+            <p style="color:var(--muted);font-size:13px;margin-bottom:24px">Usuário: <strong style="color:#fff">${me.name}</strong> &bull; ${accounts.length} conta(s) encontrada(s)</p>
+            <div style="display:flex;flex-direction:column;gap:10px;max-height:420px;overflow-y:auto;padding-right:4px">
+              ${accounts.map(a => `
+                <div onclick="selectAccount('${a.id}', this)"
+                  style="background:var(--bg);border:2px solid var(--border);border-radius:10px;padding:14px 18px;cursor:pointer;transition:all .15s;display:flex;align-items:center;justify-content:space-between;gap:12px"
+                  class="acc-item">
+                  <div>
+                    <p style="font-weight:700;color:#fff;font-size:14px">${a.name || '(sem nome)'}</p>
+                    <p style="font-size:11px;color:var(--muted);margin-top:2px">ID: ${a.account_id || a.id} &bull; Status: ${statusLabel[a.account_status]||a.account_status} &bull; Gasto total: R$ ${parseFloat(a.amount_spent||0)/100 > 0 ? (parseFloat(a.amount_spent||0)/100).toFixed(2) : '0,00'}</p>
+                  </div>
+                  <span style="font-size:20px;opacity:.4">→</span>
+                </div>`).join('')}
+            </div>
+            <p style="font-size:11px;color:var(--muted);margin-top:16px;text-align:center">A escolha será salva — na próxima vez abre direto.</p>
+          </div>
+        </div>
+      </div>`;
+
+    window.selectAccount = (id, el) => {
+      document.querySelectorAll('.acc-item').forEach(x => {
+        x.style.borderColor = 'var(--border)';
+        x.style.background = 'var(--bg)';
+      });
+      el.style.borderColor = 'var(--blue)';
+      el.style.background = 'rgba(24,119,242,.08)';
+      localStorage.setItem('meta_selected_account', id);
+      setTimeout(() => {
+        const chosen = accounts.filter(a => a.id === id);
+        resolve(chosen);
+      }, 300);
+    };
+  });
+}
+
 async function loadData() {
   document.getElementById('app').innerHTML = `
     <div class="center-screen">
@@ -245,25 +287,28 @@ async function loadData() {
     setMsg('Buscando contas de anúncio...', `Usuário: ${me.name}`);
     const allAccounts = await fetchAllPages(`${me.id}/adaccounts?fields=id,name,account_status,currency,amount_spent&limit=100`);
 
-    // Filtrar apenas contas FAVO / FAVOHUB
-    const FAVO_FILTER = /favo/i;
-    const accounts = allAccounts.filter(a => FAVO_FILTER.test(a.name || ''));
+    // Verificar se há conta salva
+    const savedAccountId = localStorage.getItem('meta_selected_account');
+    let selectedAccounts;
 
-    if (accounts.length === 0) {
-      // Fallback: use all accounts but filter campaigns by name
-      accounts.push(...allAccounts);
+    if (savedAccountId) {
+      selectedAccounts = allAccounts.filter(a => a.id === savedAccountId);
     }
+
+    if (!selectedAccounts || selectedAccounts.length === 0) {
+      // Mostrar seletor de conta e aguardar escolha
+      selectedAccounts = await showAccountPicker(allAccounts, me);
+    }
+
+    const accounts = selectedAccounts;
 
     let allCampaigns = [];
     const allInsights = {};
 
     for (let i = 0; i < accounts.length; i++) {
       const acc = accounts[i];
-      setMsg(`Buscando campanhas (conta ${i+1}/${accounts.length})...`, acc.name || acc.id);
-      const rawCampaigns = await fetchAllPages(`${acc.id}/campaigns?fields=id,name,status,objective,created_time,start_time,stop_time,daily_budget,lifetime_budget&limit=100`);
-      // Filtrar campanhas pelo nome da conta FAVO ou nome da campanha contendo FAVO
-      const isFavoAccount = FAVO_FILTER.test(acc.name || '');
-      const campaigns = isFavoAccount ? rawCampaigns : rawCampaigns.filter(c => FAVO_FILTER.test(c.name || ''));
+      setMsg(`Buscando campanhas...`, acc.name || acc.id);
+      const campaigns = await fetchAllPages(`${acc.id}/campaigns?fields=id,name,status,objective,created_time,start_time,stop_time,daily_budget,lifetime_budget&limit=100`);
       allCampaigns = allCampaigns.concat(campaigns);
 
       for (let j = 0; j < campaigns.length; j++) {
@@ -365,6 +410,7 @@ function renderDashboard() {
     </div>
     <div class="header-actions">
       <span class="tag">Gerado: ${new Date(d.generated_at).toLocaleString('pt-BR')}</span>
+      <button class="btn" style="background:var(--border);color:var(--text)" onclick="switchAccount()">⇄ Conta</button>
       <button class="btn" style="background:var(--border);color:var(--text)" onclick="showTokenSetup(null)">⚙ Token</button>
       <button class="btn btn-primary" id="refresh-btn" onclick="loadData()">⟳ Atualizar</button>
     </div>
@@ -699,6 +745,12 @@ function showTokenSetup(errorMsg) {
         </div>
       </div>
     </div>`;
+}
+
+function switchAccount() {
+  localStorage.removeItem('meta_selected_account');
+  localStorage.removeItem('meta_dashboard_data');
+  loadData();
 }
 
 function saveTokenAndLoad() {
