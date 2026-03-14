@@ -420,6 +420,7 @@ function renderDashboard() {
       <button class="tab active" onclick="switchTab('overview',this)">📊 Visão Geral</button>
       <button class="tab" onclick="switchTab('campaigns',this)">🎯 Campanhas</button>
       <button class="tab" onclick="switchTab('charts',this)">📈 Gráficos</button>
+      <button class="tab" onclick="switchTab('audience',this)">⚙️ Gestão de Público</button>
     </div>
 
     <!-- OVERVIEW TAB -->
@@ -487,6 +488,18 @@ function renderDashboard() {
       </div>
       <p style="font-size:11px;color:var(--muted);margin-bottom:12px" id="camp-count">${d.campaigns.length} campanhas (clique para expandir)</p>
       <div id="campaigns-list"></div>
+    </div>
+
+    <!-- AUDIENCE MANAGEMENT TAB -->
+    <div id="tab-audience" class="tab-content">
+      <div id="audience-content">
+        <div class="card" style="text-align:center;padding:32px">
+          <p style="font-size:28px;margin-bottom:12px">⚙️</p>
+          <p style="color:#fff;font-weight:700;margin-bottom:6px">Gestão de Público — ARQ / BRANDING / AUDIOVISUAL</p>
+          <p style="color:var(--muted);font-size:13px;margin-bottom:20px">Clique para ler o targeting atual das campanhas e gerar o plano de ajuste.</p>
+          <button class="btn btn-primary" style="padding:10px 28px" onclick="loadAudienceManagement()">🔍 Analisar Campanhas</button>
+        </div>
+      </div>
     </div>
 
     <!-- CHARTS TAB -->
@@ -707,6 +720,358 @@ function renderCharts() {
     }
   });
 }
+
+// ─────────────────────────────────────────────
+// AUDIENCE MANAGEMENT
+// ─────────────────────────────────────────────
+
+// Proposed targeting playbook per campaign type
+const AUDIENCE_PLAYBOOK = {
+  ARQ: {
+    label: 'Arquitetura / Design de Interiores',
+    emoji: '🏛️',
+    color: '#9C6FFF',
+    diagnosis: 'Volume alto de leads, mas perfil financeiro fraco. Clientes sem budget para projeto.',
+    goal: 'Filtrar para decisores com capacidade de investimento real.',
+    age_min: 30, age_max: 55,
+    interest_queries: ['luxury real estate','home renovation','interior design','architecture','real estate investment','high-end furniture','property investment'],
+    behavior_queries: ['high value transactions','frequent international travelers','engaged shoppers','recently moved'],
+    exclusion_queries: ['students','interior design students'],
+    exclude_age_max: 24,
+    justifications: {
+      age: 'Faixa 30–55: perfil de proprietário de imóvel com renda estabelecida e capacidade de investimento em reforma/projeto.',
+      interests: 'Substituir interesses amplos (decoração genérica) por imóveis de alto padrão, investimento imobiliário e reforma de luxo — indicadores de poder aquisitivo.',
+      behaviors: '"Viajante frequente internacional" e "comprador engajado" sinalizam alto poder de compra. "Mudou recentemente" indica momento de compra de projeto.',
+      exclusions: 'Excluir estudantes e menores de 25 anos elimina leads sem capacidade financeira para projeto de arquitetura.',
+    }
+  },
+  BRANDING: {
+    label: 'Branding',
+    emoji: '🎨',
+    color: '#1877F2',
+    diagnosis: 'Poucos leads e desqualificados. Público muito amplo ou genérico.',
+    goal: 'Dono de negócio / gestor de marketing em fase de reposicionamento ou lançamento.',
+    age_min: 28, age_max: 55,
+    interest_queries: ['entrepreneurship','brand strategy','marketing strategy','business development','startup','small business owners','rebranding','brand identity','digital marketing'],
+    behavior_queries: ['small business owners','business page admins','engaged shoppers'],
+    exclusion_queries: ['students','job seekers'],
+    exclude_age_max: 27,
+    justifications: {
+      age: 'Faixa 28–55: fundadores e gestores de marketing com empresa ativa e orçamento para rebranding.',
+      interests: 'Empreendedorismo, estratégia de marca e marketing digital capturam donos de negócio em fase de crescimento ou reposicionamento — exatamente quem investe em branding.',
+      behaviors: '"Administradores de página de negócios" = empresa com presença digital ativa. "Dono de pequena empresa" = decisor direto sem intermediário.',
+      exclusions: 'Excluir estudantes e candidatos a emprego remove perfis sem CNPJ ou poder de decisão de compra.',
+    }
+  },
+  AUDIOVISUAL: {
+    label: 'Audiovisual / Produção de Conteúdo',
+    emoji: '🎬',
+    color: '#FF6B35',
+    diagnosis: 'Poucos leads e desqualificados. Atrai freelancers e hobbyistas.',
+    goal: 'Empresas que já investem em conteúdo ou estruturando comunicação profissional.',
+    age_min: 28, age_max: 52,
+    interest_queries: ['video production','content marketing','brand content','corporate video','social media marketing','digital advertising','content strategy','video marketing'],
+    behavior_queries: ['small business owners','business page admins','video creators (business)'],
+    exclusion_queries: ['students','freelancers','photography hobbyists'],
+    exclude_age_max: 27,
+    justifications: {
+      age: 'Faixa 28–52: gestores de comunicação, diretores de marketing e donos de empresa que já têm budget para produção audiovisual.',
+      interests: 'Produção de vídeo corporativo, marketing de conteúdo e estratégia digital atraem quem JÁ investe em conteúdo — não quem está começando.',
+      behaviors: '"Administradores de página de negócios" = empresa com comunicação ativa que precisa de produção. "Criadores de vídeo (business)" = decisores que valorizam conteúdo profissional.',
+      exclusions: 'Excluir estudantes, freelancers e fotógrafos hobbyistas remove exatamente os perfis desqualificados relatados no diagnóstico.',
+    }
+  }
+};
+
+async function searchInterests(query) {
+  try {
+    const r = await apiFetch(`search?type=adinterest&q=${encodeURIComponent(query)}&limit=3`);
+    return (r.data || []).slice(0, 2).map(i => ({ id: i.id, name: i.name, audience_size: i.audience_size_lower_bound }));
+  } catch(e) { return []; }
+}
+
+async function searchBehaviors(query) {
+  try {
+    const r = await apiFetch(`search?type=adTargetingCategory&class=behaviors&q=${encodeURIComponent(query)}&limit=3`);
+    return (r.data || []).slice(0, 2).map(b => ({ id: b.id, name: b.name }));
+  } catch(e) { return []; }
+}
+
+async function loadAudienceManagement() {
+  const container = document.getElementById('audience-content');
+  container.innerHTML = `<div class="card" style="text-align:center;padding:32px"><div class="spinner" style="margin:0 auto 16px"></div><p style="color:#fff;font-weight:600" id="aud-msg">Buscando ad sets das campanhas...</p></div>`;
+
+  const setMsg = m => { const el = document.getElementById('aud-msg'); if(el) el.textContent = m; };
+
+  try {
+    const d = globalData;
+    const accountId = localStorage.getItem('meta_selected_account');
+
+    // Fetch all adsets with targeting
+    setMsg('Lendo targeting atual dos ad sets...');
+    const adsets = await fetchAllPages(`${accountId}/adsets?fields=id,name,status,campaign_id,targeting,age_min,age_max,optimization_goal,billing_event,daily_budget,lifetime_budget&limit=200`);
+
+    // Map campaigns by id
+    const campaignMap = {};
+    d.campaigns.forEach(c => { campaignMap[c.id] = c; });
+
+    // Match adsets to ARQ / BRANDING / AUDIOVISUAL campaigns
+    const matched = { ARQ: [], BRANDING: [], AUDIOVISUAL: [] };
+    const unmatchedCampaigns = new Set();
+
+    adsets.forEach(as => {
+      const camp = campaignMap[as.campaign_id];
+      const campName = (camp?.name || '').toUpperCase();
+      const asName = (as.name || '').toUpperCase();
+      const combined = campName + ' ' + asName;
+
+      if (/ARQ|ARQUITETURA|ARCHITECT|DESIGN DE INTERIOR/i.test(combined)) matched.ARQ.push({ ...as, campaign: camp });
+      else if (/BRANDING|BRAND|MARCA|IDENTIDADE/i.test(combined)) matched.BRANDING.push({ ...as, campaign: camp });
+      else if (/AUDIOVISUAL|AUDIO|VISUAL|VIDEO|VÍDEO|PRODUÇÃO|CONTEÚDO|CONTENT/i.test(combined)) matched.AUDIOVISUAL.push({ ...as, campaign: camp });
+      else unmatchedCampaigns.add(camp?.name || as.campaign_id);
+    });
+
+    // Search for interest & behavior IDs
+    setMsg('Buscando IDs de interesses e comportamentos na Meta API...');
+    const resolvedPlaybook = {};
+
+    for (const [key, pb] of Object.entries(AUDIENCE_PLAYBOOK)) {
+      setMsg(`Resolvendo interesses para ${pb.label}...`);
+      const interests = [];
+      for (const q of pb.interest_queries.slice(0, 4)) {
+        const found = await searchInterests(q);
+        interests.push(...found);
+      }
+      const behaviors = [];
+      for (const q of pb.behavior_queries.slice(0, 3)) {
+        const found = await searchBehaviors(q);
+        behaviors.push(...found);
+      }
+      const exclusions = [];
+      for (const q of pb.exclusion_queries.slice(0, 2)) {
+        const found = await searchInterests(q);
+        exclusions.push(...found);
+      }
+      // Deduplicate by id
+      resolvedPlaybook[key] = {
+        ...pb,
+        resolved_interests: [...new Map(interests.map(i=>[i.id,i])).values()].slice(0,8),
+        resolved_behaviors: [...new Map(behaviors.map(b=>[b.id,b])).values()].slice(0,4),
+        resolved_exclusions: [...new Map(exclusions.map(e=>[e.id,e])).values()].slice(0,4),
+      };
+    }
+
+    renderAudiencePlan(matched, resolvedPlaybook, adsets, unmatchedCampaigns);
+
+  } catch(e) {
+    container.innerHTML = `<div class="card" style="padding:24px">
+      <p style="color:var(--red);font-size:13px">Erro: ${e.message}</p>
+      <button class="btn btn-primary" style="margin-top:12px" onclick="loadAudienceManagement()">Tentar novamente</button>
+    </div>`;
+  }
+}
+
+function renderCurrentTargeting(targeting) {
+  if (!targeting) return '<span style="color:var(--muted);font-size:11px">Sem targeting definido</span>';
+  const parts = [];
+  if (targeting.age_min || targeting.age_max) parts.push(`Idade: ${targeting.age_min||'?'}–${targeting.age_max||'?'}`);
+  const ints = targeting.flexible_spec?.flatMap(fs => fs.interests||[]) || [];
+  if (ints.length) parts.push(`Interesses: ${ints.slice(0,3).map(i=>i.name).join(', ')}${ints.length>3?` +${ints.length-3}`:''}`);
+  const behs = targeting.flexible_spec?.flatMap(fs => fs.behaviors||[]) || [];
+  if (behs.length) parts.push(`Comportamentos: ${behs.slice(0,2).map(b=>b.name).join(', ')}`);
+  const excl = targeting.exclusions?.interests || [];
+  if (excl.length) parts.push(`Excluídos: ${excl.slice(0,2).map(e=>e.name).join(', ')}`);
+  const geos = targeting.geo_locations?.cities?.map(c=>c.name) || targeting.geo_locations?.regions?.map(r=>r.name) || [];
+  if (geos.length) parts.push(`Locais: ${geos.slice(0,3).join(', ')}`);
+  return parts.length ? parts.map(p=>`<span style="display:block;font-size:11px;color:var(--muted);margin-bottom:2px">• ${p}</span>`).join('') : '<span style="color:var(--muted);font-size:11px">Targeting padrão (sem especificações)</span>';
+}
+
+function buildNewTargeting(pb, existingTargeting) {
+  const geo = existingTargeting?.geo_locations || { countries: ['BR'] };
+  return {
+    age_min: pb.age_min,
+    age_max: pb.age_max,
+    geo_locations: geo,
+    flexible_spec: [
+      {
+        interests: pb.resolved_interests.slice(0, 5).map(i => ({ id: i.id, name: i.name })),
+        behaviors: pb.resolved_behaviors.slice(0, 3).map(b => ({ id: b.id, name: b.name })),
+      }
+    ],
+    exclusions: {
+      interests: pb.resolved_exclusions.map(e => ({ id: e.id, name: e.name })),
+      age_max: pb.exclude_age_max,
+    }
+  };
+}
+
+function renderAudiencePlan(matched, playbook, allAdsets, unmatched) {
+  const container = document.getElementById('audience-content');
+
+  const totalMatched = Object.values(matched).reduce((s, arr) => s + arr.length, 0);
+
+  let html = `
+    <div style="margin-bottom:20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px">
+      <div>
+        <h2 style="color:#fff;font-size:18px;font-weight:700">Plano de Ajuste de Público</h2>
+        <p style="color:var(--muted);font-size:12px">${totalMatched} ad sets detectados nas 3 campanhas &bull; Revise cada bloco antes de aplicar</p>
+      </div>
+      <button class="btn" style="background:var(--border);color:var(--text)" onclick="loadAudienceManagement()">↺ Reanalisar</button>
+    </div>`;
+
+  if (totalMatched === 0) {
+    html += `<div class="card" style="padding:24px;text-align:center">
+      <p style="color:var(--yellow);margin-bottom:8px">⚠ Nenhum ad set encontrado para ARQ, BRANDING ou AUDIOVISUAL pelo nome.</p>
+      <p style="color:var(--muted);font-size:12px">Verifique se os nomes das campanhas ou ad sets contêm essas palavras-chave.</p>
+      <p style="color:var(--muted);font-size:11px;margin-top:8px">Campanhas sem match: ${[...unmatched].slice(0,5).join(', ')}</p>
+    </div>`;
+  }
+
+  for (const [key, pb] of Object.entries(playbook)) {
+    const adsets = matched[key];
+    const newTargeting = adsets.length > 0 ? buildNewTargeting(pb, adsets[0].targeting) : buildNewTargeting(pb, null);
+
+    html += `
+    <div class="card" style="margin-bottom:16px;border-left:3px solid ${pb.color}">
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:16px">
+        <div>
+          <span style="font-size:22px">${pb.emoji}</span>
+          <span style="font-size:16px;font-weight:700;color:#fff;margin-left:8px">${pb.label}</span>
+          <span class="badge badge-obj" style="margin-left:8px">${adsets.length} ad set(s) detectado(s)</span>
+        </div>
+        <div style="display:flex;gap:8px">
+          ${adsets.length > 0 ? `<button class="btn" style="background:rgba(24,119,242,.15);color:var(--blue);font-size:12px" onclick="confirmApply('${key}', this)">✓ Aplicar Mudanças</button>` : ''}
+        </div>
+      </div>
+
+      <!-- Diagnóstico -->
+      <div style="background:rgba(255,68,102,.07);border:1px solid rgba(255,68,102,.2);border-radius:8px;padding:12px;margin-bottom:14px">
+        <p style="font-size:11px;font-weight:700;color:var(--red);margin-bottom:4px">PROBLEMA IDENTIFICADO</p>
+        <p style="font-size:12px;color:var(--text)">${pb.diagnosis}</p>
+        <p style="font-size:12px;color:var(--green);margin-top:4px">→ <strong>Objetivo:</strong> ${pb.goal}</p>
+      </div>
+
+      ${adsets.length > 0 ? `
+      <!-- Ad sets atuais -->
+      <p style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;margin-bottom:8px">AD SETS DETECTADOS</p>
+      ${adsets.map(as => `
+        <div style="background:var(--bg);border-radius:8px;padding:10px 14px;margin-bottom:8px">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+            <span class="badge ${as.status==='ACTIVE'?'badge-active':'badge-paused'}">${as.status}</span>
+            <span style="font-size:13px;font-weight:600;color:#fff">${as.name}</span>
+          </div>
+          <p style="font-size:11px;font-weight:600;color:var(--muted);margin-bottom:4px">TARGETING ATUAL:</p>
+          ${renderCurrentTargeting(as.targeting)}
+        </div>`).join('')}
+      ` : `<div style="background:var(--bg);border-radius:8px;padding:12px;margin-bottom:12px"><p style="color:var(--yellow);font-size:12px">⚠ Nenhum ad set encontrado com este nome. As mudanças serão geradas como template para aplicação manual.</p></div>`}
+
+      <!-- Mudanças propostas -->
+      <div style="background:rgba(0,200,150,.07);border:1px solid rgba(0,200,150,.2);border-radius:8px;padding:14px;margin-top:4px">
+        <p style="font-size:11px;font-weight:700;color:var(--green);margin-bottom:10px">MUDANÇAS PROPOSTAS</p>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px">
+          <div>
+            <p style="font-size:10px;color:var(--muted);font-weight:700;margin-bottom:4px">FAIXA ETÁRIA</p>
+            <p style="font-size:13px;color:#fff;font-weight:600">${pb.age_min}–${pb.age_max} anos</p>
+            <p style="font-size:10px;color:var(--muted);margin-top:2px">Excluir: 18–${pb.exclude_age_max}</p>
+          </div>
+          <div>
+            <p style="font-size:10px;color:var(--muted);font-weight:700;margin-bottom:4px">INTERESSES (${pb.resolved_interests.length} encontrados)</p>
+            ${pb.resolved_interests.slice(0,5).map(i=>`<span style="display:inline-block;background:rgba(24,119,242,.15);color:#60A5FA;font-size:10px;padding:1px 6px;border-radius:4px;margin:1px">${i.name}</span>`).join('')}
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px">
+          <div>
+            <p style="font-size:10px;color:var(--muted);font-weight:700;margin-bottom:4px">COMPORTAMENTOS (${pb.resolved_behaviors.length} encontrados)</p>
+            ${pb.resolved_behaviors.map(b=>`<span style="display:inline-block;background:rgba(156,111,255,.15);color:#c4a0ff;font-size:10px;padding:1px 6px;border-radius:4px;margin:1px">${b.name}</span>`).join('')}
+          </div>
+          <div>
+            <p style="font-size:10px;color:var(--muted);font-weight:700;margin-bottom:4px">EXCLUSÕES</p>
+            ${pb.resolved_exclusions.map(e=>`<span style="display:inline-block;background:rgba(255,68,102,.15);color:var(--red);font-size:10px;padding:1px 6px;border-radius:4px;margin:1px">${e.name}</span>`).join('')}
+          </div>
+        </div>
+
+        <!-- Justificativas -->
+        <p style="font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;margin-bottom:6px">JUSTIFICATIVAS</p>
+        ${Object.entries(pb.justifications).map(([k,v])=>`
+          <div style="display:flex;gap:8px;margin-bottom:5px">
+            <span style="font-size:10px;font-weight:700;color:${pb.color};width:80px;flex-shrink:0;text-transform:uppercase">${k}</span>
+            <span style="font-size:11px;color:var(--text)">${v}</span>
+          </div>`).join('')}
+      </div>
+
+      <!-- Confirm area -->
+      <div id="confirm-${key}" style="display:none;margin-top:12px;background:rgba(255,184,0,.08);border:1px solid rgba(255,184,0,.3);border-radius:8px;padding:14px">
+        <p style="color:var(--yellow);font-weight:700;margin-bottom:6px">⚠ Confirmar aplicação das mudanças?</p>
+        <p style="color:var(--muted);font-size:12px;margin-bottom:12px">As mudanças serão aplicadas nos <strong style="color:#fff">${adsets.length} ad set(s)</strong> acima. Os ad sets continuarão com o mesmo status (ativo/pausado).</p>
+        <div style="display:flex;gap:8px">
+          <button class="btn btn-primary" style="font-size:12px" onclick="applyAudienceChanges('${key}')">✓ Confirmar e Aplicar</button>
+          <button class="btn" style="background:var(--border);color:var(--text);font-size:12px" onclick="cancelApply('${key}')">Cancelar</button>
+        </div>
+      </div>
+      <div id="result-${key}" style="margin-top:10px"></div>
+    </div>`;
+  }
+
+  // Store data for apply function
+  window._audienceData = { matched, playbook, allAdsets };
+  container.innerHTML = html;
+}
+
+function confirmApply(key, btn) {
+  document.getElementById(`confirm-${key}`).style.display = 'block';
+  btn.style.display = 'none';
+}
+
+function cancelApply(key) {
+  document.getElementById(`confirm-${key}`).style.display = 'none';
+}
+
+async function applyAudienceChanges(key) {
+  const { matched, playbook } = window._audienceData;
+  const adsets = matched[key];
+  const pb = playbook[key];
+  const resultEl = document.getElementById(`result-${key}`);
+  const confirmEl = document.getElementById(`confirm-${key}`);
+
+  confirmEl.style.display = 'none';
+  resultEl.innerHTML = `<div style="text-align:center;padding:12px"><div class="spinner" style="margin:0 auto 8px;width:32px;height:32px;border-width:3px"></div><p style="color:var(--muted);font-size:12px">Aplicando mudanças...</p></div>`;
+
+  const results = [];
+
+  for (const as of adsets) {
+    try {
+      const newTargeting = buildNewTargeting(pb, as.targeting);
+      // Merge geo from existing targeting
+      if (as.targeting?.geo_locations) newTargeting.geo_locations = as.targeting.geo_locations;
+
+      const body = new URLSearchParams();
+      body.append('targeting', JSON.stringify(newTargeting));
+      body.append('access_token', getToken());
+
+      const res = await fetch(`${BASE}/${as.id}`, { method: 'POST', body });
+      const json = await res.json();
+
+      if (json.error) throw new Error(json.error.message);
+      results.push({ name: as.name, success: true });
+    } catch(e) {
+      results.push({ name: as.name, success: false, error: e.message });
+    }
+  }
+
+  const allOk = results.every(r => r.success);
+  resultEl.innerHTML = `
+    <div style="background:${allOk?'rgba(0,200,150,.08)':'rgba(255,68,102,.08)'};border:1px solid ${allOk?'rgba(0,200,150,.3)':'rgba(255,68,102,.3)'};border-radius:8px;padding:14px">
+      <p style="font-weight:700;color:${allOk?'var(--green)':'var(--red)'};margin-bottom:8px">${allOk?'✓ Mudanças aplicadas com sucesso!':'⚠ Algumas mudanças falharam'}</p>
+      ${results.map(r=>`<p style="font-size:12px;color:${r.success?'var(--green)':'var(--red)'}">
+        ${r.success?'✓':'✗'} ${r.name}${r.error?' — '+r.error:''}
+      </p>`).join('')}
+      ${allOk ? `<p style="font-size:11px;color:var(--muted);margin-top:8px">Verifique no Meta Ads Manager para confirmar as alterações.</p>` : ''}
+    </div>`;
+}
+
+// ─────────────────────────────────────────────
 
 function showTokenSetup(errorMsg) {
   document.getElementById('app').innerHTML = `
