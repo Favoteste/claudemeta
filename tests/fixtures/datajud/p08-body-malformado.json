@@ -1,0 +1,17 @@
+{
+  "error": {
+    "root_cause": [
+      {
+        "type": "x_content_e_o_f_exception",
+        "reason": "com.fasterxml.jackson.core.io.JsonEOFException: Unexpected end-of-input within/between Object entries\n at [Source: (byte[])\"{\"query\": {\"match\": \"; line: 1, column: 21]"
+      }
+    ],
+    "type": "x_content_e_o_f_exception",
+    "reason": "com.fasterxml.jackson.core.io.JsonEOFException: Unexpected end-of-input within/between Object entries\n at [Source: (byte[])\"{\"query\": {\"match\": \"; line: 1, column: 21]",
+    "caused_by": {
+      "type": "json_e_o_f_exception",
+      "reason": "Unexpected end-of-input within/between Object entries\n at [Source: (byte[])\"{\"query\": {\"match\": \"; line: 1, column: 21]"
+    }
+  },
+  "status": 500
+}

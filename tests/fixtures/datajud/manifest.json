@@ -1,0 +1,220 @@
+{
+  "geradoEm": "2026-07-30T01:05:53.562Z",
+  "baseUrl": "https://api-publica.datajud.cnj.jus.br",
+  "fixtures": [
+    {
+      "nome": "p00-bootstrap-tjsc",
+      "arquivo": "tests/fixtures/datajud/p00-bootstrap-tjsc.json",
+      "status": 200,
+      "url": "https://api-publica.datajud.cnj.jus.br/api_publica_tjsc/_search",
+      "bytes": 229308,
+      "cabecalhos": {
+        "connection": "keep-alive",
+        "content-encoding": "gzip",
+        "content-type": "application/json",
+        "date": "Thu, 30 Jul 2026 01:06:23 GMT",
+        "transfer-encoding": "chunked",
+        "x-cloud-request-id": "hKF2AnOYT2CmZ_mVM9u57g",
+        "x-elastic-product": "Elasticsearch",
+        "x-found-handling-cluster": "ab77d9b257f54e4a8a2761fae16016ee",
+        "x-found-handling-instance": "instance-0000000003"
+      }
+    },
+    {
+      "nome": "p01-consulta-por-numero",
+      "arquivo": "tests/fixtures/datajud/p01-consulta-por-numero.json",
+      "status": 200,
+      "url": "https://api-publica.datajud.cnj.jus.br/api_publica_tjsc/_search",
+      "bytes": 4104,
+      "cabecalhos": {
+        "connection": "keep-alive",
+        "content-encoding": "gzip",
+        "content-length": "1063",
+        "content-type": "application/json",
+        "date": "Thu, 30 Jul 2026 01:06:44 GMT",
+        "x-cloud-request-id": "mLrzuSX4TCuPvDWYEVzrSg",
+        "x-elastic-product": "Elasticsearch",
+        "x-found-handling-cluster": "ab77d9b257f54e4a8a2761fae16016ee",
+        "x-found-handling-instance": "instance-0000000003"
+      }
+    },
+    {
+      "nome": "p02-agg-repetidos",
+      "arquivo": "tests/fixtures/datajud/p02-agg-repetidos.json",
+      "status": 400,
+      "url": "https://api-publica.datajud.cnj.jus.br/api_publica_tjsc/_search",
+      "bytes": 2135,
+      "cabecalhos": {
+        "connection": "keep-alive",
+        "content-encoding": "gzip",
+        "content-length": "472",
+        "content-type": "application/json",
+        "date": "Thu, 30 Jul 2026 01:07:14 GMT",
+        "x-cloud-request-id": "YSk_ZkwEQom9jM6d0YtaQw",
+        "x-elastic-product": "Elasticsearch",
+        "x-found-handling-cluster": "ab77d9b257f54e4a8a2761fae16016ee",
+        "x-found-handling-instance": "instance-0000000008"
+      }
+    },
+    {
+      "nome": "p03-documento-com-mais-movimentos",
+      "arquivo": "tests/fixtures/datajud/p03-documento-com-mais-movimentos.json",
+      "status": null,
+      "url": null,
+      "bytes": null,
+      "cabecalhos": null
+    },
+    {
+      "nome": "p04-colisoes-de-chave",
+      "arquivo": "tests/fixtures/datajud/p04-colisoes-de-chave.json",
+      "status": null,
+      "url": null,
+      "bytes": null,
+      "cabecalhos": null
+    },
+    {
+      "nome": "p08-numero-inexistente",
+      "arquivo": "tests/fixtures/datajud/p08-numero-inexistente.json",
+      "status": 200,
+      "url": "https://api-publica.datajud.cnj.jus.br/api_publica_tjsc/_search",
+      "bytes": 166,
+      "cabecalhos": {
+        "connection": "keep-alive",
+        "content-encoding": "gzip",
+        "content-length": "145",
+        "content-type": "application/json",
+        "date": "Thu, 30 Jul 2026 01:08:09 GMT",
+        "x-cloud-request-id": "RZnrwKSbThWivymHFnjZXQ",
+        "x-elastic-product": "Elasticsearch",
+        "x-found-handling-cluster": "ab77d9b257f54e4a8a2761fae16016ee",
+        "x-found-handling-instance": "instance-0000000010"
+      }
+    },
+    {
+      "nome": "p08-numero-de-outro-tribunal",
+      "arquivo": "tests/fixtures/datajud/p08-numero-de-outro-tribunal.json",
+      "status": 200,
+      "url": "https://api-publica.datajud.cnj.jus.br/api_publica_tjsp/_search",
+      "bytes": 166,
+      "cabecalhos": {
+        "connection": "keep-alive",
+        "content-encoding": "gzip",
+        "content-length": "146",
+        "content-type": "application/json",
+        "date": "Thu, 30 Jul 2026 01:08:37 GMT",
+        "x-cloud-request-id": "CMSIFdrZSMGY4c-dwEg9vA",
+        "x-elastic-product": "Elasticsearch",
+        "x-found-handling-cluster": "ab77d9b257f54e4a8a2761fae16016ee",
+        "x-found-handling-instance": "instance-0000000003"
+      }
+    },
+    {
+      "nome": "p08-alias-invalido-tjxx",
+      "arquivo": "tests/fixtures/datajud/p08-alias-invalido-tjxx.json",
+      "status": 404,
+      "url": "https://api-publica.datajud.cnj.jus.br/api_publica_tjxx/_search",
+      "bytes": 425,
+      "cabecalhos": {
+        "connection": "keep-alive",
+        "content-encoding": "gzip",
+        "content-length": "169",
+        "content-type": "application/json",
+        "date": "Thu, 30 Jul 2026 01:08:37 GMT",
+        "x-cloud-request-id": "1z83sD2BR9-ggHBwwK2Oxw",
+        "x-elastic-product": "Elasticsearch",
+        "x-found-handling-cluster": "ab77d9b257f54e4a8a2761fae16016ee",
+        "x-found-handling-instance": "instance-0000000010"
+      }
+    },
+    {
+      "nome": "p08-alias-invalido-api_publica_tjsc",
+      "arquivo": "tests/fixtures/datajud/p08-alias-invalido-api_publica_tjsc.json",
+      "status": 404,
+      "url": "https://api-publica.datajud.cnj.jus.br/api_publica_api_publica_tjsc/_search",
+      "bytes": 497,
+      "cabecalhos": {
+        "connection": "keep-alive",
+        "content-encoding": "gzip",
+        "content-length": "172",
+        "content-type": "application/json",
+        "date": "Thu, 30 Jul 2026 01:08:40 GMT",
+        "x-cloud-request-id": "Q9ZVxMzQQiueL_RLTBhHKQ",
+        "x-elastic-product": "Elasticsearch",
+        "x-found-handling-cluster": "ab77d9b257f54e4a8a2761fae16016ee",
+        "x-found-handling-instance": "instance-0000000003"
+      }
+    },
+    {
+      "nome": "p08-alias-invalido-tj-sc",
+      "arquivo": "tests/fixtures/datajud/p08-alias-invalido-tj-sc.json",
+      "status": 404,
+      "url": "https://api-publica.datajud.cnj.jus.br/api_publica_tj-sc/_search",
+      "bytes": 431,
+      "cabecalhos": {
+        "connection": "keep-alive",
+        "content-encoding": "gzip",
+        "content-length": "170",
+        "content-type": "application/json",
+        "date": "Thu, 30 Jul 2026 01:08:43 GMT",
+        "x-cloud-request-id": "m6xJiy3QRI2ECNJf4iNj_g",
+        "x-elastic-product": "Elasticsearch",
+        "x-found-handling-cluster": "ab77d9b257f54e4a8a2761fae16016ee",
+        "x-found-handling-instance": "instance-0000000010"
+      }
+    },
+    {
+      "nome": "p08-body-malformado",
+      "arquivo": "tests/fixtures/datajud/p08-body-malformado.json",
+      "status": 500,
+      "url": "https://api-publica.datajud.cnj.jus.br/api_publica_tjsc/_search",
+      "bytes": 665,
+      "cabecalhos": {
+        "connection": "keep-alive",
+        "content-encoding": "gzip",
+        "content-length": "258",
+        "content-type": "application/json",
+        "date": "Thu, 30 Jul 2026 01:08:56 GMT",
+        "x-cloud-request-id": "SF0luQU5RTS1-VUjtIitTg",
+        "x-elastic-product": "Elasticsearch",
+        "x-found-handling-cluster": "ab77d9b257f54e4a8a2761fae16016ee",
+        "x-found-handling-instance": "instance-0000000010"
+      }
+    },
+    {
+      "nome": "p08-sem-autenticacao",
+      "arquivo": "tests/fixtures/datajud/p08-sem-autenticacao.json",
+      "status": 401,
+      "url": "https://api-publica.datajud.cnj.jus.br/api_publica_tjsc/_search",
+      "bytes": 507,
+      "cabecalhos": {
+        "connection": "keep-alive",
+        "content-encoding": "gzip",
+        "content-length": "229",
+        "content-type": "application/json",
+        "date": "Thu, 30 Jul 2026 01:08:59 GMT",
+        "www-authenticate": "Basic realm=\"security\" charset=\"UTF-8\", Bearer realm=\"security\", ApiKey",
+        "x-cloud-request-id": "YES7lI3oRGiAesaUMxhzWw",
+        "x-found-handling-cluster": "ab77d9b257f54e4a8a2761fae16016ee",
+        "x-found-handling-instance": "instance-0000000008"
+      }
+    },
+    {
+      "nome": "p08-chave-invalida",
+      "arquivo": "tests/fixtures/datajud/p08-chave-invalida.json",
+      "status": 401,
+      "url": "https://api-publica.datajud.cnj.jus.br/api_publica_tjsc/_search",
+      "bytes": 691,
+      "cabecalhos": {
+        "connection": "keep-alive",
+        "content-encoding": "gzip",
+        "content-length": "283",
+        "content-type": "application/json",
+        "date": "Thu, 30 Jul 2026 01:09:02 GMT",
+        "www-authenticate": "Basic realm=\"security\" charset=\"UTF-8\", Bearer realm=\"security\", ApiKey",
+        "x-cloud-request-id": "J_ZKqRJfQ96IVSUp0o_c9Q",
+        "x-found-handling-cluster": "ab77d9b257f54e4a8a2761fae16016ee",
+        "x-found-handling-instance": "instance-0000000003"
+      }
+    }
+  ]
+}

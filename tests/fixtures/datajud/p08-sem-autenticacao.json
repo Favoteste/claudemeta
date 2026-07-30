@@ -1,0 +1,27 @@
+{
+  "error": {
+    "root_cause": [
+      {
+        "type": "security_exception",
+        "reason": "missing authentication credentials for REST request [/api_publica_tjsc/_search]",
+        "header": {
+          "WWW-Authenticate": [
+            "Basic realm=\"security\" charset=\"UTF-8\"",
+            "Bearer realm=\"security\"",
+            "ApiKey"
+          ]
+        }
+      }
+    ],
+    "type": "security_exception",
+    "reason": "missing authentication credentials for REST request [/api_publica_tjsc/_search]",
+    "header": {
+      "WWW-Authenticate": [
+        "Basic realm=\"security\" charset=\"UTF-8\"",
+        "Bearer realm=\"security\"",
+        "ApiKey"
+      ]
+    }
+  },
+  "status": 401
+}

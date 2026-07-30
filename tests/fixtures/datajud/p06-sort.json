@@ -1,0 +1,35 @@
+{
+  "took": 41579,
+  "timed_out": false,
+  "_shards": {
+    "total": 10,
+    "successful": 10,
+    "skipped": 0,
+    "failed": 0
+  },
+  "hits": {
+    "total": {
+      "value": 10000,
+      "relation": "gte"
+    },
+    "max_score": null,
+    "hits": [
+      {
+        "_index": "api_publica_tjsc",
+        "_id": "TJSC_172_JE_8251_09001821120178240037",
+        "_score": null,
+        "sort": [
+          1626881873022
+        ]
+      },
+      {
+        "_index": "api_publica_tjsc",
+        "_id": "TJSC_172_G1_14163_03031489020178240038",
+        "_score": null,
+        "sort": [
+          1626926202034
+        ]
+      }
+    ]
+  }
+}

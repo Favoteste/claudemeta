@@ -202,10 +202,14 @@ export async function p03Movimentos(ctx) {
 
   const quantidades = analises.map((a) => a.quantidade)
   const ordenacoes = contar(analises.map((a) => a.ordenacao))
-  // Contagem exatamente em número redondo é o sintoma clássico de truncamento.
-  const suspeitasDeTruncamento = analises.filter((a) =>
-    [10, 100, 500, 1000, 10_000].includes(a.quantidade),
+  // Truncamento se manifesta como MUITOS documentos parados exatamente no mesmo
+  // número redondo — um documento isolado com 10 movimentos é coincidência, não teto.
+  // Exigimos pelo menos 3 documentos empatados no mesmo valor para levantar suspeita.
+  const contagemPorValor = contar(quantidades.map(String))
+  const tetosSuspeitos = [10, 100, 500, 1000, 10_000].filter(
+    (valor) => (contagemPorValor[String(valor)] ?? 0) >= 3,
   )
+  const suspeitasDeTruncamento = analises.filter((a) => tetosSuspeitos.includes(a.quantidade))
 
   const maior = analises[0]
   if (maior) await ctx.salvarFixture('p03-documento-com-mais-movimentos', maior.documento)
@@ -223,8 +227,8 @@ export async function p03Movimentos(ctx) {
         ? '**O array NÃO é confiavelmente ordenado** — o motor de diff da Fase 4 deve ordenar por conta própria e nunca assumir que o último elemento é o mais recente.'
         : 'O array aparenta ordenação consistente, mas o diff da Fase 4 deve ordenar explicitamente de todo modo: depender da ordem da fonte é dívida gratuita.',
       suspeitasDeTruncamento.length
-        ? `ATENÇÃO: ${suspeitasDeTruncamento.length} documento(s) com contagem exatamente redonda (${[...new Set(suspeitasDeTruncamento.map((a) => a.quantidade))].join(', ')}) — forte suspeita de truncamento do array. Investigue antes de confiar no histórico como completo.`
-        : 'Nenhuma contagem redonda suspeita: não há indício de truncamento do array de movimentos.',
+        ? `ATENÇÃO: ${suspeitasDeTruncamento.length} documentos empatados em contagem redonda (${tetosSuspeitos.join(', ')}) — empate em massa é sintoma de teto, não coincidência. Investigue antes de confiar no histórico como completo.`
+        : `Nenhum empate em massa em contagem redonda (máximo observado: ${Math.max(...quantidades)} movimentos num único documento), portanto não há indício de truncamento do array.`,
     ].join(' '),
     evidencia: {
       documentosAnalisados: analises.length,
