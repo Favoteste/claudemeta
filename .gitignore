@@ -1,4 +1,12 @@
 node_modules/
 .next/
-.env.local
 *.log
+
+# Segredos (regra inviolável 1). Só .env.example é versionado.
+.env
+.env.local
+.env.*.local
+
+# Saída de execução do spike: trilha de auditoria e achados em JSON.
+# Os documentos gerados (docs/*.md) e as fixtures (tests/fixtures/) SÃO versionados.
+spike/out/
