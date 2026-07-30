@@ -116,3 +116,43 @@ que é, por definição, validação empírica.
 execução real, e não foram versionados a partir do mock justamente para não passarem por
 verificados. Rodar o spike de um ambiente com acesso é o próximo passo obrigatório antes
 da Fase 1.
+
+---
+
+### D-008 — A plataforma assume a raiz; o dashboard do Instagram sai (pendente)
+
+**Decisão do usuário.** A plataforma ocupa a raiz do repositório, com os caminhos do
+CLAUDE.md valendo literalmente (`lib/`, `supabase/migrations/`, `docs/`, `tests/`). O
+dashboard de campanhas do Instagram é removido, com o histórico do git preservando-o.
+
+**Alternativa descartada.** Subdiretório dedicado (`monitor-processual/`), que evitaria a
+colisão sem remover nada.
+
+**Motivo.** Colisão direta: o dashboard já ocupa `src/app`, `package.json`,
+`next.config.js`, `tailwind.config.js`, `tsconfig.json` e `postcss.config.js` — todos
+necessários ao front-end da Fase 7. Duas aplicações Next.js sem relação na mesma base
+seria atrito permanente.
+
+**PENDENTE, e de propósito.** A remoção ainda não foi executada. Os arquivos
+`gestao-favo.js`, `criar-favo-reveal.js`, `ativar-favo-reveal.js` e `dashboard.html` são
+trabalho **recente e aparentemente em andamento** (últimos seis commits do repositório,
+com uma branch paralela `claude/instagram-campaign-analysis-*` ativa). Apagá-los a partir
+desta branch os removeria do main na integração. Confirmar com o usuário, arquivo por
+arquivo, antes de remover qualquer coisa — a decisão de layout foi tomada sem que essa
+sobreposição estivesse à vista.
+
+---
+
+### D-009 — A chave da API foi redigida do CLAUDE.md versionado
+
+**Decisão.** O `CLAUDE.md` na raiz reproduz o documento original, porém com o valor da
+chave substituído por `<DATAJUD_API_KEY>` e um ponteiro para a página oficial do CNJ.
+
+**Alternativa descartada.** Versionar o documento exatamente como recebido, com a chave.
+
+**Motivo.** A regra inviolável 1 não abre exceção para segredo de baixo valor, e o próprio
+critério de aceite 7 exige "nenhum segredo no repositório". A chave ser pública e
+compartilhada reduz o impacto, não a violação: uma chave literal no repositório ensina o
+padrão errado e sobrevive no histórico do git mesmo depois de removida. Como o CNJ pode
+rotacioná-la sem aviso, um valor fixo no documento estaria errado em algum momento de todo
+modo — o ponteiro para a wiki não.
