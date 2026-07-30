@@ -1,0 +1,2394 @@
+{
+  "_index": "api_publica_tjsc",
+  "_id": "TJSC_G1_50028205720208240002",
+  "_score": 1,
+  "_source": {
+    "id": "TJSC_G1_50028205720208240002",
+    "tribunal": "TJSC",
+    "grau": "G1",
+    "numeroProcesso": "50028205720208240002",
+    "dataAjuizamento": "20200621220401",
+    "nivelSigilo": 0,
+    "orgaoJulgador": {
+      "codigo": 82982,
+      "nome": "Vara Estadual de Direito Bancário",
+      "codigoMunicipioIBGE": 4205407
+    },
+    "classe": {
+      "codigo": 12154,
+      "nome": "Execução de Título Extrajudicial"
+    },
+    "sistema": {
+      "codigo": 4,
+      "nome": "Projudi"
+    },
+    "formato": {
+      "codigo": 1,
+      "nome": "Eletrônico"
+    },
+    "dataHoraUltimaAtualizacao": "2026-07-13T08:31:26.467000Z",
+    "@timestamp": "2026-07-13T08:31:26.467000Z",
+    "movimentos": [
+      {
+        "codigo": 581,
+        "dataHora": "2026-07-06T12:53:19.000Z",
+        "nome": "Documento",
+        "complementosTabelados": [
+          {
+            "codigo": 4,
+            "descricao": "tipo_de_documento",
+            "valor": 116,
+            "nome": "Informações"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 581,
+        "dataHora": "2026-06-26T08:47:25.000Z",
+        "nome": "Documento",
+        "complementosTabelados": [
+          {
+            "codigo": 4,
+            "descricao": "tipo_de_documento",
+            "valor": 80,
+            "nome": "Outros documentos"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 92,
+        "dataHora": "2026-05-29T03:49:37.000Z",
+        "nome": "Publicação",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 1061,
+        "dataHora": "2026-05-28T03:09:28.000Z",
+        "nome": "Disponibilização no Diário da Justiça Eletrônico",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 581,
+        "dataHora": "2026-05-26T17:39:58.000Z",
+        "nome": "Documento",
+        "complementosTabelados": [
+          {
+            "codigo": 4,
+            "descricao": "tipo_de_documento",
+            "valor": 78,
+            "nome": "Mandado"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 60,
+        "dataHora": "2026-04-21T15:26:37.000Z",
+        "nome": "Expedição de documento",
+        "complementosTabelados": [
+          {
+            "codigo": 4,
+            "descricao": "tipo_de_documento",
+            "valor": 78,
+            "nome": "Mandado"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 581,
+        "dataHora": "2026-01-26T13:20:38.000Z",
+        "nome": "Documento",
+        "complementosTabelados": [
+          {
+            "codigo": 4,
+            "descricao": "tipo_de_documento",
+            "valor": 116,
+            "nome": "Informações"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 581,
+        "dataHora": "2026-01-20T14:43:50.000Z",
+        "nome": "Documento",
+        "complementosTabelados": [
+          {
+            "codigo": 4,
+            "descricao": "tipo_de_documento",
+            "valor": 80,
+            "nome": "Outros documentos"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 92,
+        "dataHora": "2025-12-10T04:53:55.000Z",
+        "nome": "Publicação",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 1061,
+        "dataHora": "2025-12-09T03:32:14.000Z",
+        "nome": "Disponibilização no Diário da Justiça Eletrônico",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 581,
+        "dataHora": "2025-12-04T13:38:41.000Z",
+        "nome": "Documento",
+        "complementosTabelados": [
+          {
+            "codigo": 4,
+            "descricao": "tipo_de_documento",
+            "valor": 78,
+            "nome": "Mandado"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 60,
+        "dataHora": "2025-10-08T18:32:14.000Z",
+        "nome": "Expedição de documento",
+        "complementosTabelados": [
+          {
+            "codigo": 4,
+            "descricao": "tipo_de_documento",
+            "valor": 78,
+            "nome": "Mandado"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 581,
+        "dataHora": "2025-06-30T14:48:38.000Z",
+        "nome": "Documento",
+        "complementosTabelados": [
+          {
+            "codigo": 4,
+            "descricao": "tipo_de_documento",
+            "valor": 116,
+            "nome": "Informações"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 581,
+        "dataHora": "2025-06-25T15:39:40.000Z",
+        "nome": "Documento",
+        "complementosTabelados": [
+          {
+            "codigo": 4,
+            "descricao": "tipo_de_documento",
+            "valor": 80,
+            "nome": "Outros documentos"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 92,
+        "dataHora": "2025-06-10T02:43:45.000Z",
+        "nome": "Publicação",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 1061,
+        "dataHora": "2025-06-09T02:08:27.000Z",
+        "nome": "Disponibilização no Diário da Justiça Eletrônico",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 581,
+        "dataHora": "2025-06-04T08:45:55.000Z",
+        "nome": "Documento",
+        "complementosTabelados": [
+          {
+            "codigo": 4,
+            "descricao": "tipo_de_documento",
+            "valor": 78,
+            "nome": "Mandado"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 60,
+        "dataHora": "2025-05-29T15:01:14.000Z",
+        "nome": "Expedição de documento",
+        "complementosTabelados": [
+          {
+            "codigo": 4,
+            "descricao": "tipo_de_documento",
+            "valor": 78,
+            "nome": "Mandado"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 581,
+        "dataHora": "2025-03-18T09:15:32.000Z",
+        "nome": "Documento",
+        "complementosTabelados": [
+          {
+            "codigo": 4,
+            "descricao": "tipo_de_documento",
+            "valor": 116,
+            "nome": "Informações"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 581,
+        "dataHora": "2025-03-11T15:07:06.000Z",
+        "nome": "Documento",
+        "complementosTabelados": [
+          {
+            "codigo": 4,
+            "descricao": "tipo_de_documento",
+            "valor": 80,
+            "nome": "Outros documentos"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 51,
+        "dataHora": "2025-02-17T16:02:09.000Z",
+        "nome": "Conclusão",
+        "complementosTabelados": [
+          {
+            "codigo": 3,
+            "descricao": "tipo_de_conclusao",
+            "valor": 6,
+            "nome": "para decisão"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 123,
+        "dataHora": "2024-10-09T22:35:58.000Z",
+        "nome": "Remessa",
+        "complementosTabelados": [
+          {
+            "codigo": 18,
+            "descricao": "motivo_da_remessa",
+            "valor": 40,
+            "nome": "outros motivos"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 581,
+        "dataHora": "2024-10-09T22:35:56.000Z",
+        "nome": "Documento",
+        "complementosTabelados": [
+          {
+            "codigo": 4,
+            "descricao": "tipo_de_documento",
+            "valor": 80,
+            "nome": "Outros documentos"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 581,
+        "dataHora": "2024-10-09T22:35:56.000Z",
+        "nome": "Documento",
+        "complementosTabelados": [
+          {
+            "codigo": 4,
+            "descricao": "tipo_de_documento",
+            "valor": 80,
+            "nome": "Outros documentos"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 581,
+        "dataHora": "2024-10-09T22:35:56.000Z",
+        "nome": "Documento",
+        "complementosTabelados": [
+          {
+            "codigo": 4,
+            "descricao": "tipo_de_documento",
+            "valor": 80,
+            "nome": "Outros documentos"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 60,
+        "dataHora": "2024-10-09T19:35:21.000Z",
+        "nome": "Expedição de documento",
+        "complementosTabelados": [
+          {
+            "codigo": 4,
+            "descricao": "tipo_de_documento",
+            "valor": 80,
+            "nome": "Outros documentos"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 60,
+        "dataHora": "2024-10-09T19:35:20.000Z",
+        "nome": "Expedição de documento",
+        "complementosTabelados": [
+          {
+            "codigo": 4,
+            "descricao": "tipo_de_documento",
+            "valor": 80,
+            "nome": "Outros documentos"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 581,
+        "dataHora": "2024-09-06T15:07:04.000Z",
+        "nome": "Documento",
+        "complementosTabelados": [
+          {
+            "codigo": 4,
+            "descricao": "tipo_de_documento",
+            "valor": 107,
+            "nome": "Certidão"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 123,
+        "dataHora": "2024-09-06T15:06:44.000Z",
+        "nome": "Remessa",
+        "complementosTabelados": [
+          {
+            "codigo": 18,
+            "descricao": "motivo_da_remessa",
+            "valor": 40,
+            "nome": "outros motivos"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 51,
+        "dataHora": "2024-06-03T10:58:14.000Z",
+        "nome": "Conclusão",
+        "complementosTabelados": [
+          {
+            "codigo": 3,
+            "descricao": "tipo_de_conclusao",
+            "valor": 6,
+            "nome": "para decisão"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 51,
+        "dataHora": "2024-02-19T16:21:40.000Z",
+        "nome": "Conclusão",
+        "complementosTabelados": [
+          {
+            "codigo": 3,
+            "descricao": "tipo_de_conclusao",
+            "valor": 6,
+            "nome": "para decisão"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 581,
+        "dataHora": "2024-01-10T22:41:02.000Z",
+        "nome": "Documento",
+        "complementosTabelados": [
+          {
+            "codigo": 4,
+            "descricao": "tipo_de_documento",
+            "valor": 80,
+            "nome": "Outros documentos"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 51,
+        "dataHora": "2023-12-01T16:18:58.000Z",
+        "nome": "Conclusão",
+        "complementosTabelados": [
+          {
+            "codigo": 3,
+            "descricao": "tipo_de_conclusao",
+            "valor": 6,
+            "nome": "para decisão"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 581,
+        "dataHora": "2023-10-26T14:45:32.000Z",
+        "nome": "Documento",
+        "complementosTabelados": [
+          {
+            "codigo": 4,
+            "descricao": "tipo_de_documento",
+            "valor": 80,
+            "nome": "Outros documentos"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 51,
+        "dataHora": "2023-05-25T17:00:44.000Z",
+        "nome": "Conclusão",
+        "complementosTabelados": [
+          {
+            "codigo": 3,
+            "descricao": "tipo_de_conclusao",
+            "valor": 6,
+            "nome": "para decisão"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 581,
+        "dataHora": "2023-04-25T14:05:30.000Z",
+        "nome": "Documento",
+        "complementosTabelados": [
+          {
+            "codigo": 4,
+            "descricao": "tipo_de_documento",
+            "valor": 80,
+            "nome": "Outros documentos"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 581,
+        "dataHora": "2023-04-25T14:05:30.000Z",
+        "nome": "Documento",
+        "complementosTabelados": [
+          {
+            "codigo": 4,
+            "descricao": "tipo_de_documento",
+            "valor": 80,
+            "nome": "Outros documentos"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 581,
+        "dataHora": "2023-04-25T14:05:29.000Z",
+        "nome": "Documento",
+        "complementosTabelados": [
+          {
+            "codigo": 4,
+            "descricao": "tipo_de_documento",
+            "valor": 80,
+            "nome": "Outros documentos"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 581,
+        "dataHora": "2023-04-25T13:51:58.000Z",
+        "nome": "Documento",
+        "complementosTabelados": [
+          {
+            "codigo": 4,
+            "descricao": "tipo_de_documento",
+            "valor": 107,
+            "nome": "Certidão"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 51,
+        "dataHora": "2023-02-08T17:25:05.000Z",
+        "nome": "Conclusão",
+        "complementosTabelados": [
+          {
+            "codigo": 3,
+            "descricao": "tipo_de_conclusao",
+            "valor": 6,
+            "nome": "para decisão"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 581,
+        "dataHora": "2022-11-18T14:47:27.000Z",
+        "nome": "Documento",
+        "complementosTabelados": [
+          {
+            "codigo": 4,
+            "descricao": "tipo_de_documento",
+            "valor": 107,
+            "nome": "Certidão"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 51,
+        "dataHora": "2022-11-07T19:01:19.000Z",
+        "nome": "Conclusão",
+        "complementosTabelados": [
+          {
+            "codigo": 3,
+            "descricao": "tipo_de_conclusao",
+            "valor": 6,
+            "nome": "para decisão"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 51,
+        "dataHora": "2022-06-13T07:19:17.000Z",
+        "nome": "Conclusão",
+        "complementosTabelados": [
+          {
+            "codigo": 3,
+            "descricao": "tipo_de_conclusao",
+            "valor": 5,
+            "nome": "para despacho"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 1051,
+        "dataHora": "2022-05-21T01:16:17.000Z",
+        "nome": "Decurso de Prazo",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 581,
+        "dataHora": "2022-05-13T12:37:53.000Z",
+        "nome": "Documento",
+        "complementosTabelados": [
+          {
+            "codigo": 4,
+            "descricao": "tipo_de_documento",
+            "valor": 74,
+            "nome": "Aviso de recebimento (AR)"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 60,
+        "dataHora": "2022-04-26T08:08:25.000Z",
+        "nome": "Expedição de documento",
+        "complementosTabelados": [
+          {
+            "codigo": 4,
+            "descricao": "tipo_de_documento",
+            "valor": 79,
+            "nome": "Ofício"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 581,
+        "dataHora": "2022-02-14T16:21:31.000Z",
+        "nome": "Documento",
+        "complementosTabelados": [
+          {
+            "codigo": 4,
+            "descricao": "tipo_de_documento",
+            "valor": 116,
+            "nome": "Informações"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 581,
+        "dataHora": "2022-02-10T11:33:33.000Z",
+        "nome": "Documento",
+        "complementosTabelados": [
+          {
+            "codigo": 4,
+            "descricao": "tipo_de_documento",
+            "valor": 80,
+            "nome": "Outros documentos"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 581,
+        "dataHora": "2022-02-10T11:33:28.000Z",
+        "nome": "Documento",
+        "complementosTabelados": [
+          {
+            "codigo": 4,
+            "descricao": "tipo_de_documento",
+            "valor": 80,
+            "nome": "Outros documentos"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 581,
+        "dataHora": "2022-02-09T16:14:49.000Z",
+        "nome": "Documento",
+        "complementosTabelados": [
+          {
+            "codigo": 4,
+            "descricao": "tipo_de_documento",
+            "valor": 80,
+            "nome": "Outros documentos"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 581,
+        "dataHora": "2022-02-09T14:33:57.000Z",
+        "nome": "Documento",
+        "complementosTabelados": [
+          {
+            "codigo": 4,
+            "descricao": "tipo_de_documento",
+            "valor": 80,
+            "nome": "Outros documentos"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 123,
+        "dataHora": "2022-02-06T15:29:34.000Z",
+        "nome": "Remessa",
+        "complementosTabelados": [
+          {
+            "codigo": 18,
+            "descricao": "motivo_da_remessa",
+            "valor": 40,
+            "nome": "outros motivos"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 581,
+        "dataHora": "2022-02-06T15:29:34.000Z",
+        "nome": "Documento",
+        "complementosTabelados": [
+          {
+            "codigo": 4,
+            "descricao": "tipo_de_documento",
+            "valor": 80,
+            "nome": "Outros documentos"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 581,
+        "dataHora": "2022-02-06T15:29:33.000Z",
+        "nome": "Documento",
+        "complementosTabelados": [
+          {
+            "codigo": 4,
+            "descricao": "tipo_de_documento",
+            "valor": 80,
+            "nome": "Outros documentos"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 581,
+        "dataHora": "2022-02-06T15:29:33.000Z",
+        "nome": "Documento",
+        "complementosTabelados": [
+          {
+            "codigo": 4,
+            "descricao": "tipo_de_documento",
+            "valor": 80,
+            "nome": "Outros documentos"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 581,
+        "dataHora": "2022-02-05T23:53:42.000Z",
+        "nome": "Documento",
+        "complementosTabelados": [
+          {
+            "codigo": 4,
+            "descricao": "tipo_de_documento",
+            "valor": 80,
+            "nome": "Outros documentos"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 581,
+        "dataHora": "2022-02-05T23:52:45.000Z",
+        "nome": "Documento",
+        "complementosTabelados": [
+          {
+            "codigo": 4,
+            "descricao": "tipo_de_documento",
+            "valor": 80,
+            "nome": "Outros documentos"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 581,
+        "dataHora": "2022-02-05T23:51:48.000Z",
+        "nome": "Documento",
+        "complementosTabelados": [
+          {
+            "codigo": 4,
+            "descricao": "tipo_de_documento",
+            "valor": 80,
+            "nome": "Outros documentos"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 123,
+        "dataHora": "2022-01-27T16:33:01.000Z",
+        "nome": "Remessa",
+        "complementosTabelados": [
+          {
+            "codigo": 18,
+            "descricao": "motivo_da_remessa",
+            "valor": 40,
+            "nome": "outros motivos"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 36,
+        "dataHora": "2022-01-08T12:16:13.000Z",
+        "nome": "Redistribuição",
+        "complementosTabelados": [
+          {
+            "codigo": 17,
+            "descricao": "motivo_da_redistribuicao",
+            "valor": 84,
+            "nome": "alteração de competência do Ã³rgÃ£o"
+          },
+          {
+            "codigo": 2,
+            "descricao": "tipo_de_distribuicao_redistribuicao",
+            "valor": 1,
+            "nome": "competência exclusiva"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 12291,
+        "dataHora": "2021-12-11T16:05:04.000Z",
+        "nome": "Movimentação processual",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 12291,
+        "dataHora": "2021-12-11T16:05:04.000Z",
+        "nome": "Movimentação processual",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 51,
+        "dataHora": "2021-11-09T12:14:46.000Z",
+        "nome": "Conclusão",
+        "complementosTabelados": [
+          {
+            "codigo": 3,
+            "descricao": "tipo_de_conclusao",
+            "valor": 6,
+            "nome": "para decisão"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 51,
+        "dataHora": "2021-06-23T13:12:32.000Z",
+        "nome": "Conclusão",
+        "complementosTabelados": [
+          {
+            "codigo": 3,
+            "descricao": "tipo_de_conclusao",
+            "valor": 5,
+            "nome": "para despacho"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 36,
+        "dataHora": "2021-05-01T16:43:39.000Z",
+        "nome": "Redistribuição",
+        "complementosTabelados": [
+          {
+            "codigo": 17,
+            "descricao": "motivo_da_redistribuicao",
+            "valor": 84,
+            "nome": "alteração de competência do Ã³rgÃ£o"
+          },
+          {
+            "codigo": 2,
+            "descricao": "tipo_de_distribuicao_redistribuicao",
+            "valor": 1,
+            "nome": "competência exclusiva"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 1051,
+        "dataHora": "2021-02-05T01:13:11.000Z",
+        "nome": "Decurso de Prazo",
+        "orgaoJulgador": {
+          "codigo": "77145",
+          "nome": "Unidade Regional de Direito Bancário do Extremo Oeste Catarinense da Comarca de Anchieta"
+        }
+      },
+      {
+        "codigo": 581,
+        "dataHora": "2021-02-04T12:57:01.000Z",
+        "nome": "Documento",
+        "complementosTabelados": [
+          {
+            "codigo": 4,
+            "descricao": "tipo_de_documento",
+            "valor": 78,
+            "nome": "Mandado"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "77145",
+          "nome": "Unidade Regional de Direito Bancário do Extremo Oeste Catarinense da Comarca de Anchieta"
+        }
+      },
+      {
+        "codigo": 581,
+        "dataHora": "2021-02-01T10:41:01.000Z",
+        "nome": "Documento",
+        "complementosTabelados": [
+          {
+            "codigo": 4,
+            "descricao": "tipo_de_documento",
+            "valor": 78,
+            "nome": "Mandado"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "77145",
+          "nome": "Unidade Regional de Direito Bancário do Extremo Oeste Catarinense da Comarca de Anchieta"
+        }
+      },
+      {
+        "codigo": 60,
+        "dataHora": "2020-11-25T15:53:00.000Z",
+        "nome": "Expedição de documento",
+        "complementosTabelados": [
+          {
+            "codigo": 4,
+            "descricao": "tipo_de_documento",
+            "valor": 78,
+            "nome": "Mandado"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "77145",
+          "nome": "Unidade Regional de Direito Bancário do Extremo Oeste Catarinense da Comarca de Anchieta"
+        }
+      },
+      {
+        "codigo": 60,
+        "dataHora": "2020-11-25T15:52:54.000Z",
+        "nome": "Expedição de documento",
+        "complementosTabelados": [
+          {
+            "codigo": 4,
+            "descricao": "tipo_de_documento",
+            "valor": 78,
+            "nome": "Mandado"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "77145",
+          "nome": "Unidade Regional de Direito Bancário do Extremo Oeste Catarinense da Comarca de Anchieta"
+        }
+      },
+      {
+        "codigo": 581,
+        "dataHora": "2020-11-06T17:36:42.000Z",
+        "nome": "Documento",
+        "complementosTabelados": [
+          {
+            "codigo": 4,
+            "descricao": "tipo_de_documento",
+            "valor": 78,
+            "nome": "Mandado"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "77145",
+          "nome": "Unidade Regional de Direito Bancário do Extremo Oeste Catarinense da Comarca de Anchieta"
+        }
+      },
+      {
+        "codigo": 581,
+        "dataHora": "2020-11-06T17:28:20.000Z",
+        "nome": "Documento",
+        "complementosTabelados": [
+          {
+            "codigo": 4,
+            "descricao": "tipo_de_documento",
+            "valor": 78,
+            "nome": "Mandado"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "77145",
+          "nome": "Unidade Regional de Direito Bancário do Extremo Oeste Catarinense da Comarca de Anchieta"
+        }
+      },
+      {
+        "codigo": 581,
+        "dataHora": "2020-11-05T09:01:57.000Z",
+        "nome": "Documento",
+        "complementosTabelados": [
+          {
+            "codigo": 4,
+            "descricao": "tipo_de_documento",
+            "valor": 116,
+            "nome": "Informações"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "77145",
+          "nome": "Unidade Regional de Direito Bancário do Extremo Oeste Catarinense da Comarca de Anchieta"
+        }
+      },
+      {
+        "codigo": 581,
+        "dataHora": "2020-11-03T17:22:56.000Z",
+        "nome": "Documento",
+        "complementosTabelados": [
+          {
+            "codigo": 4,
+            "descricao": "tipo_de_documento",
+            "valor": 80,
+            "nome": "Outros documentos"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "77145",
+          "nome": "Unidade Regional de Direito Bancário do Extremo Oeste Catarinense da Comarca de Anchieta"
+        }
+      },
+      {
+        "codigo": 581,
+        "dataHora": "2020-11-03T17:22:51.000Z",
+        "nome": "Documento",
+        "complementosTabelados": [
+          {
+            "codigo": 4,
+            "descricao": "tipo_de_documento",
+            "valor": 80,
+            "nome": "Outros documentos"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "77145",
+          "nome": "Unidade Regional de Direito Bancário do Extremo Oeste Catarinense da Comarca de Anchieta"
+        }
+      },
+      {
+        "codigo": 581,
+        "dataHora": "2020-09-27T09:17:16.000Z",
+        "nome": "Documento",
+        "complementosTabelados": [
+          {
+            "codigo": 4,
+            "descricao": "tipo_de_documento",
+            "valor": 78,
+            "nome": "Mandado"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "77145",
+          "nome": "Unidade Regional de Direito Bancário do Extremo Oeste Catarinense da Comarca de Anchieta"
+        }
+      },
+      {
+        "codigo": 581,
+        "dataHora": "2020-09-27T09:15:20.000Z",
+        "nome": "Documento",
+        "complementosTabelados": [
+          {
+            "codigo": 4,
+            "descricao": "tipo_de_documento",
+            "valor": 78,
+            "nome": "Mandado"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "77145",
+          "nome": "Unidade Regional de Direito Bancário do Extremo Oeste Catarinense da Comarca de Anchieta"
+        }
+      },
+      {
+        "codigo": 60,
+        "dataHora": "2020-09-17T17:46:42.000Z",
+        "nome": "Expedição de documento",
+        "complementosTabelados": [
+          {
+            "codigo": 4,
+            "descricao": "tipo_de_documento",
+            "valor": 78,
+            "nome": "Mandado"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "77145",
+          "nome": "Unidade Regional de Direito Bancário do Extremo Oeste Catarinense da Comarca de Anchieta"
+        }
+      },
+      {
+        "codigo": 60,
+        "dataHora": "2020-09-17T17:46:41.000Z",
+        "nome": "Expedição de documento",
+        "complementosTabelados": [
+          {
+            "codigo": 4,
+            "descricao": "tipo_de_documento",
+            "valor": 78,
+            "nome": "Mandado"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "77145",
+          "nome": "Unidade Regional de Direito Bancário do Extremo Oeste Catarinense da Comarca de Anchieta"
+        }
+      },
+      {
+        "codigo": 60,
+        "dataHora": "2020-09-17T17:46:40.000Z",
+        "nome": "Expedição de documento",
+        "complementosTabelados": [
+          {
+            "codigo": 4,
+            "descricao": "tipo_de_documento",
+            "valor": 78,
+            "nome": "Mandado"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "77145",
+          "nome": "Unidade Regional de Direito Bancário do Extremo Oeste Catarinense da Comarca de Anchieta"
+        }
+      },
+      {
+        "codigo": 60,
+        "dataHora": "2020-09-17T17:46:39.000Z",
+        "nome": "Expedição de documento",
+        "complementosTabelados": [
+          {
+            "codigo": 4,
+            "descricao": "tipo_de_documento",
+            "valor": 78,
+            "nome": "Mandado"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "77145",
+          "nome": "Unidade Regional de Direito Bancário do Extremo Oeste Catarinense da Comarca de Anchieta"
+        }
+      },
+      {
+        "codigo": 581,
+        "dataHora": "2020-09-16T08:40:19.000Z",
+        "nome": "Documento",
+        "complementosTabelados": [
+          {
+            "codigo": 4,
+            "descricao": "tipo_de_documento",
+            "valor": 116,
+            "nome": "Informações"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "77145",
+          "nome": "Unidade Regional de Direito Bancário do Extremo Oeste Catarinense da Comarca de Anchieta"
+        }
+      },
+      {
+        "codigo": 581,
+        "dataHora": "2020-09-15T08:04:30.000Z",
+        "nome": "Documento",
+        "complementosTabelados": [
+          {
+            "codigo": 4,
+            "descricao": "tipo_de_documento",
+            "valor": 80,
+            "nome": "Outros documentos"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "77145",
+          "nome": "Unidade Regional de Direito Bancário do Extremo Oeste Catarinense da Comarca de Anchieta"
+        }
+      },
+      {
+        "codigo": 581,
+        "dataHora": "2020-09-15T08:04:19.000Z",
+        "nome": "Documento",
+        "complementosTabelados": [
+          {
+            "codigo": 4,
+            "descricao": "tipo_de_documento",
+            "valor": 80,
+            "nome": "Outros documentos"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "77145",
+          "nome": "Unidade Regional de Direito Bancário do Extremo Oeste Catarinense da Comarca de Anchieta"
+        }
+      },
+      {
+        "codigo": 581,
+        "dataHora": "2020-06-23T10:03:11.000Z",
+        "nome": "Documento",
+        "complementosTabelados": [
+          {
+            "codigo": 4,
+            "descricao": "tipo_de_documento",
+            "valor": 116,
+            "nome": "Informações"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "77145",
+          "nome": "Unidade Regional de Direito Bancário do Extremo Oeste Catarinense da Comarca de Anchieta"
+        }
+      },
+      {
+        "codigo": 51,
+        "dataHora": "2020-06-22T13:28:06.000Z",
+        "nome": "Conclusão",
+        "complementosTabelados": [
+          {
+            "codigo": 3,
+            "descricao": "tipo_de_conclusao",
+            "valor": 6,
+            "nome": "para decisão"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "77145",
+          "nome": "Unidade Regional de Direito Bancário do Extremo Oeste Catarinense da Comarca de Anchieta"
+        }
+      },
+      {
+        "codigo": 581,
+        "dataHora": "2020-06-21T22:05:26.000Z",
+        "nome": "Documento",
+        "complementosTabelados": [
+          {
+            "codigo": 4,
+            "descricao": "tipo_de_documento",
+            "valor": 80,
+            "nome": "Outros documentos"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "77145",
+          "nome": "Unidade Regional de Direito Bancário do Extremo Oeste Catarinense da Comarca de Anchieta"
+        }
+      },
+      {
+        "codigo": 581,
+        "dataHora": "2020-06-21T22:05:20.000Z",
+        "nome": "Documento",
+        "complementosTabelados": [
+          {
+            "codigo": 4,
+            "descricao": "tipo_de_documento",
+            "valor": 80,
+            "nome": "Outros documentos"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "77145",
+          "nome": "Unidade Regional de Direito Bancário do Extremo Oeste Catarinense da Comarca de Anchieta"
+        }
+      },
+      {
+        "codigo": 26,
+        "dataHora": "2020-06-21T22:04:01.000Z",
+        "nome": "Distribuição",
+        "complementosTabelados": [
+          {
+            "codigo": 2,
+            "descricao": "tipo_de_distribuicao_redistribuicao",
+            "valor": 2,
+            "nome": "sorteio"
+          }
+        ],
+        "orgaoJulgador": {
+          "codigo": "77145",
+          "nome": "Unidade Regional de Direito Bancário do Extremo Oeste Catarinense da Comarca de Anchieta"
+        }
+      },
+      {
+        "codigo": 85,
+        "dataHora": "2026-07-11T11:57:48.000Z",
+        "nome": "Petição",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 12282,
+        "dataHora": "2026-06-26T08:47:27.000Z",
+        "nome": "Expedida/Certificada",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 12265,
+        "dataHora": "2026-05-27T18:25:47.000Z",
+        "nome": "Expedida/certificada",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 11383,
+        "dataHora": "2026-05-27T18:25:46.000Z",
+        "nome": "Ato ordinatório",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 985,
+        "dataHora": "2026-04-22T14:36:03.000Z",
+        "nome": "Mandado",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 85,
+        "dataHora": "2026-02-22T21:40:40.000Z",
+        "nome": "Petição",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 12282,
+        "dataHora": "2026-01-20T14:43:50.000Z",
+        "nome": "Expedida/Certificada",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 12265,
+        "dataHora": "2025-12-05T19:10:18.000Z",
+        "nome": "Expedida/certificada",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 11383,
+        "dataHora": "2025-12-05T19:10:17.000Z",
+        "nome": "Ato ordinatório",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 985,
+        "dataHora": "2025-10-09T18:59:36.000Z",
+        "nome": "Mandado",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 85,
+        "dataHora": "2025-07-20T15:51:44.000Z",
+        "nome": "Petição",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 12282,
+        "dataHora": "2025-06-25T15:39:41.000Z",
+        "nome": "Expedida/Certificada",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 12265,
+        "dataHora": "2025-06-06T13:56:04.000Z",
+        "nome": "Expedida/certificada",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 11383,
+        "dataHora": "2025-06-06T13:56:04.000Z",
+        "nome": "Ato ordinatório",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 985,
+        "dataHora": "2025-06-03T14:29:47.000Z",
+        "nome": "Mandado",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 85,
+        "dataHora": "2025-03-24T19:49:46.000Z",
+        "nome": "Petição",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 12282,
+        "dataHora": "2025-03-11T15:07:09.000Z",
+        "nome": "Expedida/Certificada",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 12266,
+        "dataHora": "2025-02-28T23:59:59.000Z",
+        "nome": "Confirmada",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 12265,
+        "dataHora": "2025-02-18T18:15:55.000Z",
+        "nome": "Expedida/certificada",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 12164,
+        "dataHora": "2025-02-18T18:15:53.000Z",
+        "nome": "Outras Decisões",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 85,
+        "dataHora": "2025-01-23T18:14:01.000Z",
+        "nome": "Petição",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 12266,
+        "dataHora": "2024-12-08T23:59:59.000Z",
+        "nome": "Confirmada",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 12265,
+        "dataHora": "2024-11-28T14:18:33.000Z",
+        "nome": "Expedida/certificada",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 11383,
+        "dataHora": "2024-11-28T14:18:30.000Z",
+        "nome": "Ato ordinatório",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 12164,
+        "dataHora": "2024-07-19T18:53:01.000Z",
+        "nome": "Outras Decisões",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 85,
+        "dataHora": "2024-06-03T10:41:20.000Z",
+        "nome": "Petição",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 12266,
+        "dataHora": "2024-06-03T10:41:18.000Z",
+        "nome": "Confirmada",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 12265,
+        "dataHora": "2024-05-27T15:00:47.000Z",
+        "nome": "Expedida/certificada",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 12164,
+        "dataHora": "2024-05-27T15:00:44.000Z",
+        "nome": "Outras Decisões",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 85,
+        "dataHora": "2024-02-16T17:14:36.000Z",
+        "nome": "Petição",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 12266,
+        "dataHora": "2024-01-20T23:59:59.000Z",
+        "nome": "Confirmada",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 12265,
+        "dataHora": "2024-01-10T22:42:56.000Z",
+        "nome": "Expedida/certificada",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 11383,
+        "dataHora": "2024-01-10T22:42:56.000Z",
+        "nome": "Ato ordinatório",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 85,
+        "dataHora": "2023-12-11T23:16:39.000Z",
+        "nome": "Petição",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 12266,
+        "dataHora": "2023-12-11T23:16:39.000Z",
+        "nome": "Confirmada",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 12265,
+        "dataHora": "2023-12-11T19:05:33.000Z",
+        "nome": "Expedida/certificada",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 12164,
+        "dataHora": "2023-12-11T19:05:30.000Z",
+        "nome": "Outras Decisões",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 85,
+        "dataHora": "2023-11-27T23:31:36.000Z",
+        "nome": "Petição",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 12266,
+        "dataHora": "2023-11-06T23:59:59.000Z",
+        "nome": "Confirmada",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 12265,
+        "dataHora": "2023-10-26T14:46:17.000Z",
+        "nome": "Expedida/certificada",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 11383,
+        "dataHora": "2023-10-26T14:46:14.000Z",
+        "nome": "Ato ordinatório",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 12164,
+        "dataHora": "2023-09-06T18:11:32.000Z",
+        "nome": "Outras Decisões",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 85,
+        "dataHora": "2023-05-23T23:08:39.000Z",
+        "nome": "Petição",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 85,
+        "dataHora": "2023-05-07T17:04:45.000Z",
+        "nome": "Petição",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 12266,
+        "dataHora": "2023-05-05T23:59:59.000Z",
+        "nome": "Confirmada",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 12265,
+        "dataHora": "2023-04-25T17:20:04.000Z",
+        "nome": "Expedida/certificada",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 11383,
+        "dataHora": "2023-04-25T17:20:03.000Z",
+        "nome": "Ato ordinatório",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 12265,
+        "dataHora": "2023-04-25T12:44:21.000Z",
+        "nome": "Expedida/certificada",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 12164,
+        "dataHora": "2023-04-20T18:24:26.000Z",
+        "nome": "Outras Decisões",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 85,
+        "dataHora": "2023-02-05T21:39:35.000Z",
+        "nome": "Petição",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 12266,
+        "dataHora": "2023-01-19T23:59:59.000Z",
+        "nome": "Confirmada",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 12265,
+        "dataHora": "2023-01-09T17:16:24.000Z",
+        "nome": "Expedida/certificada",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 11383,
+        "dataHora": "2023-01-09T17:16:24.000Z",
+        "nome": "Ato ordinatório",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 12282,
+        "dataHora": "2022-11-29T10:50:12.000Z",
+        "nome": "Expedida/Certificada",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 12548,
+        "dataHora": "2022-11-18T14:58:01.000Z",
+        "nome": "Expedição de alvará de levantamento",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 85,
+        "dataHora": "2022-11-14T07:01:09.000Z",
+        "nome": "Petição",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 12266,
+        "dataHora": "2022-11-14T07:01:09.000Z",
+        "nome": "Confirmada",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 12265,
+        "dataHora": "2022-11-11T14:36:02.000Z",
+        "nome": "Expedida/certificada",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 12164,
+        "dataHora": "2022-11-11T14:36:01.000Z",
+        "nome": "Outras Decisões",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 12282,
+        "dataHora": "2022-11-07T19:01:34.000Z",
+        "nome": "Expedida/Certificada",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 12282,
+        "dataHora": "2022-11-07T19:01:34.000Z",
+        "nome": "Expedida/Certificada",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 12282,
+        "dataHora": "2022-11-07T19:01:34.000Z",
+        "nome": "Expedida/Certificada",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 85,
+        "dataHora": "2022-07-04T21:46:24.000Z",
+        "nome": "Petição",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 12266,
+        "dataHora": "2022-06-23T23:59:59.000Z",
+        "nome": "Confirmada",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 12265,
+        "dataHora": "2022-06-13T16:57:46.000Z",
+        "nome": "Expedida/certificada",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 11010,
+        "dataHora": "2022-06-13T16:57:46.000Z",
+        "nome": "Mero expediente",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 85,
+        "dataHora": "2022-02-11T22:04:28.000Z",
+        "nome": "Petição",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 12266,
+        "dataHora": "2022-02-11T22:04:28.000Z",
+        "nome": "Confirmada",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 12265,
+        "dataHora": "2022-02-09T16:53:07.000Z",
+        "nome": "Expedida/certificada",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 11383,
+        "dataHora": "2022-02-09T16:53:07.000Z",
+        "nome": "Ato ordinatório",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 12283,
+        "dataHora": "2022-02-07T18:44:41.000Z",
+        "nome": "Confirmada",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 12164,
+        "dataHora": "2021-11-30T14:35:59.000Z",
+        "nome": "Outras Decisões",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 85,
+        "dataHora": "2021-11-08T21:08:58.000Z",
+        "nome": "Petição",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 12266,
+        "dataHora": "2021-10-01T23:59:59.000Z",
+        "nome": "Confirmada",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 12265,
+        "dataHora": "2021-09-21T15:35:03.000Z",
+        "nome": "Expedida/certificada",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 11010,
+        "dataHora": "2021-09-21T15:35:03.000Z",
+        "nome": "Mero expediente",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 85,
+        "dataHora": "2021-06-02T22:42:00.000Z",
+        "nome": "Petição",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 12266,
+        "dataHora": "2021-05-23T23:59:59.000Z",
+        "nome": "Confirmada",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 12265,
+        "dataHora": "2021-05-13T15:58:07.000Z",
+        "nome": "Expedida/certificada",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 11383,
+        "dataHora": "2021-05-13T15:58:07.000Z",
+        "nome": "Ato ordinatório",
+        "orgaoJulgador": {
+          "codigo": "82982",
+          "nome": "Vara Estadual de Direito Bancário"
+        }
+      },
+      {
+        "codigo": 985,
+        "dataHora": "2020-11-27T21:50:56.000Z",
+        "nome": "Mandado",
+        "orgaoJulgador": {
+          "codigo": "77145",
+          "nome": "Unidade Regional de Direito Bancário do Extremo Oeste Catarinense da Comarca de Anchieta"
+        }
+      },
+      {
+        "codigo": 985,
+        "dataHora": "2020-11-27T21:50:56.000Z",
+        "nome": "Mandado",
+        "orgaoJulgador": {
+          "codigo": "77145",
+          "nome": "Unidade Regional de Direito Bancário do Extremo Oeste Catarinense da Comarca de Anchieta"
+        }
+      },
+      {
+        "codigo": 85,
+        "dataHora": "2020-11-05T17:42:01.000Z",
+        "nome": "Petição",
+        "orgaoJulgador": {
+          "codigo": "77145",
+          "nome": "Unidade Regional de Direito Bancário do Extremo Oeste Catarinense da Comarca de Anchieta"
+        }
+      },
+      {
+        "codigo": 12266,
+        "dataHora": "2020-11-05T17:42:01.000Z",
+        "nome": "Confirmada",
+        "orgaoJulgador": {
+          "codigo": "77145",
+          "nome": "Unidade Regional de Direito Bancário do Extremo Oeste Catarinense da Comarca de Anchieta"
+        }
+      },
+      {
+        "codigo": 12265,
+        "dataHora": "2020-10-26T13:16:38.000Z",
+        "nome": "Expedida/certificada",
+        "orgaoJulgador": {
+          "codigo": "77145",
+          "nome": "Unidade Regional de Direito Bancário do Extremo Oeste Catarinense da Comarca de Anchieta"
+        }
+      },
+      {
+        "codigo": 11383,
+        "dataHora": "2020-10-26T13:16:38.000Z",
+        "nome": "Ato ordinatório",
+        "orgaoJulgador": {
+          "codigo": "77145",
+          "nome": "Unidade Regional de Direito Bancário do Extremo Oeste Catarinense da Comarca de Anchieta"
+        }
+      },
+      {
+        "codigo": 85,
+        "dataHora": "2020-10-25T22:31:26.000Z",
+        "nome": "Petição",
+        "orgaoJulgador": {
+          "codigo": "77145",
+          "nome": "Unidade Regional de Direito Bancário do Extremo Oeste Catarinense da Comarca de Anchieta"
+        }
+      },
+      {
+        "codigo": 12266,
+        "dataHora": "2020-10-20T23:59:59.000Z",
+        "nome": "Confirmada",
+        "orgaoJulgador": {
+          "codigo": "77145",
+          "nome": "Unidade Regional de Direito Bancário do Extremo Oeste Catarinense da Comarca de Anchieta"
+        }
+      },
+      {
+        "codigo": 12265,
+        "dataHora": "2020-10-10T16:54:12.000Z",
+        "nome": "Expedida/certificada",
+        "orgaoJulgador": {
+          "codigo": "77145",
+          "nome": "Unidade Regional de Direito Bancário do Extremo Oeste Catarinense da Comarca de Anchieta"
+        }
+      },
+      {
+        "codigo": 11383,
+        "dataHora": "2020-10-10T16:54:12.000Z",
+        "nome": "Ato ordinatório",
+        "orgaoJulgador": {
+          "codigo": "77145",
+          "nome": "Unidade Regional de Direito Bancário do Extremo Oeste Catarinense da Comarca de Anchieta"
+        }
+      },
+      {
+        "codigo": 985,
+        "dataHora": "2020-09-22T14:05:41.000Z",
+        "nome": "Mandado",
+        "orgaoJulgador": {
+          "codigo": "77145",
+          "nome": "Unidade Regional de Direito Bancário do Extremo Oeste Catarinense da Comarca de Anchieta"
+        }
+      },
+      {
+        "codigo": 985,
+        "dataHora": "2020-09-22T14:05:41.000Z",
+        "nome": "Mandado",
+        "orgaoJulgador": {
+          "codigo": "77145",
+          "nome": "Unidade Regional de Direito Bancário do Extremo Oeste Catarinense da Comarca de Anchieta"
+        }
+      },
+      {
+        "codigo": 985,
+        "dataHora": "2020-09-17T17:54:37.000Z",
+        "nome": "Mandado",
+        "orgaoJulgador": {
+          "codigo": "77145",
+          "nome": "Unidade Regional de Direito Bancário do Extremo Oeste Catarinense da Comarca de Anchieta"
+        }
+      },
+      {
+        "codigo": 985,
+        "dataHora": "2020-09-17T17:54:24.000Z",
+        "nome": "Mandado",
+        "orgaoJulgador": {
+          "codigo": "77145",
+          "nome": "Unidade Regional de Direito Bancário do Extremo Oeste Catarinense da Comarca de Anchieta"
+        }
+      },
+      {
+        "codigo": 85,
+        "dataHora": "2020-09-17T15:13:19.000Z",
+        "nome": "Petição",
+        "orgaoJulgador": {
+          "codigo": "77145",
+          "nome": "Unidade Regional de Direito Bancário do Extremo Oeste Catarinense da Comarca de Anchieta"
+        }
+      },
+      {
+        "codigo": 12266,
+        "dataHora": "2020-09-07T23:59:59.000Z",
+        "nome": "Confirmada",
+        "orgaoJulgador": {
+          "codigo": "77145",
+          "nome": "Unidade Regional de Direito Bancário do Extremo Oeste Catarinense da Comarca de Anchieta"
+        }
+      },
+      {
+        "codigo": 12266,
+        "dataHora": "2020-09-04T23:59:59.000Z",
+        "nome": "Confirmada",
+        "orgaoJulgador": {
+          "codigo": "77145",
+          "nome": "Unidade Regional de Direito Bancário do Extremo Oeste Catarinense da Comarca de Anchieta"
+        }
+      },
+      {
+        "codigo": 12265,
+        "dataHora": "2020-08-28T16:30:02.000Z",
+        "nome": "Expedida/certificada",
+        "orgaoJulgador": {
+          "codigo": "77145",
+          "nome": "Unidade Regional de Direito Bancário do Extremo Oeste Catarinense da Comarca de Anchieta"
+        }
+      },
+      {
+        "codigo": 11383,
+        "dataHora": "2020-08-28T16:30:02.000Z",
+        "nome": "Ato ordinatório",
+        "orgaoJulgador": {
+          "codigo": "77145",
+          "nome": "Unidade Regional de Direito Bancário do Extremo Oeste Catarinense da Comarca de Anchieta"
+        }
+      },
+      {
+        "codigo": 12265,
+        "dataHora": "2020-08-25T18:52:08.000Z",
+        "nome": "Expedida/certificada",
+        "orgaoJulgador": {
+          "codigo": "77145",
+          "nome": "Unidade Regional de Direito Bancário do Extremo Oeste Catarinense da Comarca de Anchieta"
+        }
+      },
+      {
+        "codigo": 12164,
+        "dataHora": "2020-08-25T18:52:08.000Z",
+        "nome": "Outras Decisões",
+        "orgaoJulgador": {
+          "codigo": "77145",
+          "nome": "Unidade Regional de Direito Bancário do Extremo Oeste Catarinense da Comarca de Anchieta"
+        }
+      }
+    ],
+    "assuntos": [
+      {
+        "codigo": 4960,
+        "nome": "Cédula de Crédito Bancário"
+      }
+    ]
+  }
+}

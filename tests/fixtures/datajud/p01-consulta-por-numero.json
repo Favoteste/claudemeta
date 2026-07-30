@@ -1,0 +1,250 @@
+{
+  "took": 21148,
+  "timed_out": false,
+  "_shards": {
+    "total": 10,
+    "successful": 10,
+    "skipped": 0,
+    "failed": 0
+  },
+  "hits": {
+    "total": {
+      "value": 1,
+      "relation": "eq"
+    },
+    "max_score": 13.785414,
+    "hits": [
+      {
+        "_index": "api_publica_tjsc",
+        "_id": "TJSC_G1_50310534320268240038",
+        "_score": 13.785414,
+        "_source": {
+          "id": "TJSC_G1_50310534320268240038",
+          "tribunal": "TJSC",
+          "grau": "G1",
+          "numeroProcesso": "50310534320268240038",
+          "dataAjuizamento": "20260626084031",
+          "nivelSigilo": 0,
+          "orgaoJulgador": {
+            "codigo": 86492,
+            "nome": "8ª Vara Cível da Comarca de Joinville",
+            "codigoMunicipioIBGE": 4209102
+          },
+          "classe": {
+            "codigo": 12154,
+            "nome": "Execução de Título Extrajudicial"
+          },
+          "sistema": {
+            "codigo": 4,
+            "nome": "Projudi"
+          },
+          "formato": {
+            "codigo": 1,
+            "nome": "Eletrônico"
+          },
+          "dataHoraUltimaAtualizacao": "2026-07-13T08:31:23.896000Z",
+          "@timestamp": "2026-07-13T08:31:23.896000Z",
+          "movimentos": [
+            {
+              "codigo": 581,
+              "dataHora": "2026-07-08T01:15:23.000Z",
+              "nome": "Documento",
+              "complementosTabelados": [
+                {
+                  "codigo": 4,
+                  "descricao": "tipo_de_documento",
+                  "valor": 107,
+                  "nome": "Certidão"
+                }
+              ],
+              "orgaoJulgador": {
+                "codigo": "86492",
+                "nome": "8ª Vara Cível da Comarca de Joinville"
+              }
+            },
+            {
+              "codigo": 60,
+              "dataHora": "2026-07-02T14:23:20.000Z",
+              "nome": "Expedição de documento",
+              "complementosTabelados": [
+                {
+                  "codigo": 4,
+                  "descricao": "tipo_de_documento",
+                  "valor": 79,
+                  "nome": "Ofício"
+                }
+              ],
+              "orgaoJulgador": {
+                "codigo": "86492",
+                "nome": "8ª Vara Cível da Comarca de Joinville"
+              }
+            },
+            {
+              "codigo": 92,
+              "dataHora": "2026-06-30T03:39:23.000Z",
+              "nome": "Publicação",
+              "orgaoJulgador": {
+                "codigo": "86492",
+                "nome": "8ª Vara Cível da Comarca de Joinville"
+              }
+            },
+            {
+              "codigo": 1061,
+              "dataHora": "2026-06-29T02:59:15.000Z",
+              "nome": "Disponibilização no Diário da Justiça Eletrônico",
+              "orgaoJulgador": {
+                "codigo": "86492",
+                "nome": "8ª Vara Cível da Comarca de Joinville"
+              }
+            },
+            {
+              "codigo": 15216,
+              "dataHora": "2026-06-26T17:38:30.000Z",
+              "orgaoJulgador": {
+                "codigo": "86492",
+                "nome": "8ª Vara Cível da Comarca de Joinville"
+              }
+            },
+            {
+              "codigo": 51,
+              "dataHora": "2026-06-26T10:47:11.000Z",
+              "nome": "Conclusão",
+              "complementosTabelados": [
+                {
+                  "codigo": 3,
+                  "descricao": "tipo_de_conclusao",
+                  "valor": 5,
+                  "nome": "para despacho"
+                }
+              ],
+              "orgaoJulgador": {
+                "codigo": "86492",
+                "nome": "8ª Vara Cível da Comarca de Joinville"
+              }
+            },
+            {
+              "codigo": 581,
+              "dataHora": "2026-06-26T10:47:11.000Z",
+              "nome": "Documento",
+              "complementosTabelados": [
+                {
+                  "codigo": 4,
+                  "descricao": "tipo_de_documento",
+                  "valor": 116,
+                  "nome": "Informações"
+                }
+              ],
+              "orgaoJulgador": {
+                "codigo": "86492",
+                "nome": "8ª Vara Cível da Comarca de Joinville"
+              }
+            },
+            {
+              "codigo": 581,
+              "dataHora": "2026-06-26T08:41:00.000Z",
+              "nome": "Documento",
+              "complementosTabelados": [
+                {
+                  "codigo": 4,
+                  "descricao": "tipo_de_documento",
+                  "valor": 80,
+                  "nome": "Outros documentos"
+                }
+              ],
+              "orgaoJulgador": {
+                "codigo": "86492",
+                "nome": "8ª Vara Cível da Comarca de Joinville"
+              }
+            },
+            {
+              "codigo": 26,
+              "dataHora": "2026-06-26T08:40:31.000Z",
+              "nome": "Distribuição",
+              "complementosTabelados": [
+                {
+                  "codigo": 2,
+                  "descricao": "tipo_de_distribuicao_redistribuicao",
+                  "valor": 2,
+                  "nome": "sorteio"
+                }
+              ],
+              "orgaoJulgador": {
+                "codigo": "86492",
+                "nome": "8ª Vara Cível da Comarca de Joinville"
+              }
+            },
+            {
+              "codigo": 85,
+              "dataHora": "2026-07-07T13:36:00.000Z",
+              "nome": "Petição",
+              "orgaoJulgador": {
+                "codigo": "86492",
+                "nome": "8ª Vara Cível da Comarca de Joinville"
+              }
+            },
+            {
+              "codigo": 12287,
+              "dataHora": "2026-07-02T14:21:53.000Z",
+              "nome": "Expedida/Certificada",
+              "orgaoJulgador": {
+                "codigo": "86492",
+                "nome": "8ª Vara Cível da Comarca de Joinville"
+              }
+            },
+            {
+              "codigo": 85,
+              "dataHora": "2026-06-29T11:46:48.000Z",
+              "nome": "Petição",
+              "orgaoJulgador": {
+                "codigo": "86492",
+                "nome": "8ª Vara Cível da Comarca de Joinville"
+              }
+            },
+            {
+              "codigo": 12266,
+              "dataHora": "2026-06-29T11:46:48.000Z",
+              "nome": "Confirmada",
+              "orgaoJulgador": {
+                "codigo": "86492",
+                "nome": "8ª Vara Cível da Comarca de Joinville"
+              }
+            },
+            {
+              "codigo": 12265,
+              "dataHora": "2026-06-26T17:38:32.000Z",
+              "nome": "Expedida/certificada",
+              "orgaoJulgador": {
+                "codigo": "86492",
+                "nome": "8ª Vara Cível da Comarca de Joinville"
+              }
+            },
+            {
+              "codigo": 12282,
+              "dataHora": "2026-06-26T08:41:01.000Z",
+              "nome": "Expedida/Certificada",
+              "orgaoJulgador": {
+                "codigo": "86492",
+                "nome": "8ª Vara Cível da Comarca de Joinville"
+              }
+            },
+            {
+              "codigo": 14736,
+              "dataHora": "2026-06-26T08:40:31.000Z",
+              "nome": "Inclusão no Juízo 100% Digital",
+              "orgaoJulgador": {
+                "codigo": "86492",
+                "nome": "8ª Vara Cível da Comarca de Joinville"
+              }
+            }
+          ],
+          "assuntos": [
+            {
+              "codigo": 10462,
+              "nome": "Condomínio"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

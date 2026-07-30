@@ -1,0 +1,34 @@
+{
+  "error": {
+    "root_cause": [
+      {
+        "type": "illegal_argument_exception",
+        "reason": "Fielddata is disabled on [numeroProcesso] in [api_publica_tjsc]. Text fields are not optimised for operations that require per-document field data like aggregations and sorting, so these operations are disabled by default. Please use a keyword field instead. Alternatively, set fielddata=true on [numeroProcesso] in order to load field data by uninverting the inverted index. Note that this can use significant memory."
+      }
+    ],
+    "type": "search_phase_execution_exception",
+    "reason": "all shards failed",
+    "phase": "query",
+    "grouped": true,
+    "failed_shards": [
+      {
+        "shard": 0,
+        "index": "api_publica_tjsc",
+        "node": "bBZhzg_xRru05_O7mgYG5Q",
+        "reason": {
+          "type": "illegal_argument_exception",
+          "reason": "Fielddata is disabled on [numeroProcesso] in [api_publica_tjsc]. Text fields are not optimised for operations that require per-document field data like aggregations and sorting, so these operations are disabled by default. Please use a keyword field instead. Alternatively, set fielddata=true on [numeroProcesso] in order to load field data by uninverting the inverted index. Note that this can use significant memory."
+        }
+      }
+    ],
+    "caused_by": {
+      "type": "illegal_argument_exception",
+      "reason": "Fielddata is disabled on [numeroProcesso] in [api_publica_tjsc]. Text fields are not optimised for operations that require per-document field data like aggregations and sorting, so these operations are disabled by default. Please use a keyword field instead. Alternatively, set fielddata=true on [numeroProcesso] in order to load field data by uninverting the inverted index. Note that this can use significant memory.",
+      "caused_by": {
+        "type": "illegal_argument_exception",
+        "reason": "Fielddata is disabled on [numeroProcesso] in [api_publica_tjsc]. Text fields are not optimised for operations that require per-document field data like aggregations and sorting, so these operations are disabled by default. Please use a keyword field instead. Alternatively, set fielddata=true on [numeroProcesso] in order to load field data by uninverting the inverted index. Note that this can use significant memory."
+      }
+    }
+  },
+  "status": 400
+}

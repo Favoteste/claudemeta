@@ -32,6 +32,32 @@ node spike/probe.mjs
 
 Zero dependências e zero build: JavaScript puro em `.mjs`, roda em qualquer Node 18+.
 
+### Atrás de proxy de egresso
+
+O `fetch` embutido do Node **ignora `HTTPS_PROXY`** a menos que a variável esteja
+definida na partida do processo. Sem isso, toda requisição morre em timeout sem
+explicação. O spike detecta a situação e recusa rodar, mas a forma correta é:
+
+```bash
+NODE_USE_ENV_PROXY=1 node spike/probe.mjs
+```
+
+## O que já se sabe da API real (medido, não suposto)
+
+Estes números vieram das primeiras consultas de verdade e mudam decisões de produto:
+
+| Observação | Consequência |
+| --- | --- |
+| `took` entre **38 s e 43 s**, mesmo em consulta dirigida por número | timeout do cliente é 180 s, não 30 s; e sincronizar 300 processos um a um levaria horas |
+| **429 sem cabeçalho** de rate limit, mesmo com requisições sequenciais e espaçadas | a chave é compartilhada por **todos** os consumidores do país: 429 é ruído de fundo, não indisciplina nossa. Backoff robusto é obrigatório, e o lote via `terms` deixa de ser otimização e passa a ser requisito |
+| `match_all` chegou a **504** aos 61 s | não dependa de varredura ampla; o produto consulta por número |
+| `_id` = `TJSC_G1_09059719020148240038` | a chave de unicidade é **tribunal + grau + número**, não o número |
+| `dataAjuizamento` = `20140714094109` | **não é ISO 8601**, ao contrário de `dataHora` e `dataHoraUltimaAtualizacao`. Formato `YYYYMMDDHHMMSS` |
+| `movimentos[]` traz `orgaoJulgador` **por movimento** | não estava previsto no §3; permite ver o processo trocando de vara ao longo do tempo |
+
+Por isso o spike aceita `--sondagens=P00,P01` — a cota é escassa e cara, e convém
+gastá-la onde rende mais em vez de rodar tudo às cegas.
+
 ### Opções
 
 | Flag | Efeito |
@@ -42,6 +68,7 @@ Zero dependências e zero build: JavaScript puro em `.mjs`, roda em qualquer Nod
 | `--pular-sweep` | não varre a lista de aliases (bem mais rápido) |
 | `--sweep-completo` | inclui TREs e TJMs, cuja grafia está em teste |
 | `--rate-limit-probe` | **opt-in**: estoura o limite de propósito. Ver aviso abaixo |
+| `--sondagens=P00,P01` | roda só as sondagens listadas, para economizar cota |
 | `--verboso` | loga toda requisição |
 
 ### Aviso sobre `--rate-limit-probe`

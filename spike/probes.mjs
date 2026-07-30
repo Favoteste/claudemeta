@@ -325,9 +325,12 @@ export async function p05Size(ctx) {
   const { cliente, opcoes } = ctx
   const tentativas = []
   for (const size of [1, 100, 1000, 10_000, 10_001]) {
+    // `_source: false` é OBRIGATÓRIO aqui: um documento real tem ~10 KB, então
+    // size=10000 com _source traria ~100 MB por requisição. Queremos saber se o
+    // `size` é ACEITO, não baixar o índice (regras 2 e 7).
     const r = await cliente.buscar(
       opcoes.alias,
-      { size, query: { match_all: {} } },
+      { size, _source: false, query: { match_all: {} } },
       { rotulo: `p05-size-${size}` },
     )
     tentativas.push({
@@ -363,7 +366,7 @@ export async function p06Paginacao(ctx) {
 
   const comSort = await cliente.buscar(
     opcoes.alias,
-    { size: 2, query: { match_all: {} }, sort: [{ '@timestamp': { order: 'asc' } }] },
+    { size: 2, _source: false, query: { match_all: {} }, sort: [{ '@timestamp': { order: 'asc' } }] },
     { rotulo: 'p06-sort' },
   )
   await ctx.salvarFixture('p06-sort', comSort)
@@ -388,7 +391,7 @@ export async function p06Paginacao(ctx) {
 
   const comFrom = await cliente.buscar(
     opcoes.alias,
-    { size: 2, from: 2, query: { match_all: {} } },
+    { size: 2, _source: false, query: { match_all: {} }, from: 2 },
     { rotulo: 'p06-from' },
   )
 
@@ -453,7 +456,7 @@ export async function p07Terms(ctx) {
     const lote = preencherLote(disponiveis, tamanho)
     const r = await cliente.buscar(
       opcoes.alias,
-      { size: 1000, query: { terms: { numeroProcesso: lote } } },
+      { size: 1000, _source: false, query: { terms: { numeroProcesso: lote } } },
       { rotulo: `p07-terms-${tamanho}` },
     )
     tentativas.push({
@@ -478,7 +481,7 @@ export async function p07Terms(ctx) {
   if (precisaKeyword) {
     comKeyword = await cliente.buscar(
       opcoes.alias,
-      { size: 100, query: { terms: { 'numeroProcesso.keyword': disponiveis.slice(0, 10) } } },
+      { size: 100, _source: false, query: { terms: { 'numeroProcesso.keyword': disponiveis.slice(0, 10) } } },
       { rotulo: 'p07-terms-keyword' },
     )
     await ctx.salvarFixture('p07-terms-keyword', comKeyword)

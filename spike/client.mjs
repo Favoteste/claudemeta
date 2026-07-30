@@ -43,7 +43,10 @@ export function criarCliente({
   baseUrl = process.env.DATAJUD_BASE_URL ?? BASE_URL_PADRAO,
   minIntervaloMs = Number(process.env.DATAJUD_MIN_INTERVALO_MS ?? 1100),
   maxTentativas = 4,
-  timeoutMs = 30_000,
+  // O cluster público é LENTO: `took` observado entre 38 s e 43 s até para consulta
+  // dirigida por número, e um 504 apareceu aos 61 s. 30 s (o padrão anterior) fazia
+  // toda requisição legítima estourar por timeout do cliente.
+  timeoutMs = Number(process.env.DATAJUD_TIMEOUT_MS ?? 180_000),
   aoLogar = () => {},
 } = {}) {
   if (!apiKey) throw new Error('apiKey ausente: exporte DATAJUD_API_KEY antes de rodar o spike.')
@@ -127,7 +130,10 @@ export function criarCliente({
 
         const deveRetentar = STATUS_RETENTAVEIS.has(resposta.status) && tentativa < maxTentativas
         if (deveRetentar) {
-          await dormir(calcularEspera(tentativa, cabecalhosResposta['retry-after']))
+          // 429 sem cabeçalho declarado: a API não informa a janela, então recuamos
+          // bem mais que num 5xx. Ser lento aqui é barato; ser abusivo não é (regra 2).
+          const base = resposta.status === 429 ? 15_000 : 1_000
+          await dormir(calcularEspera(tentativa, cabecalhosResposta['retry-after'], base))
           continue
         }
 
@@ -175,11 +181,11 @@ export function criarCliente({
 }
 
 /** Backoff exponencial com jitter total; respeita Retry-After quando presente. */
-function calcularEspera(tentativa, retryAfter) {
+function calcularEspera(tentativa, retryAfter, base = 1_000) {
   if (retryAfter) {
     const segundos = Number(retryAfter)
-    if (Number.isFinite(segundos) && segundos >= 0) return Math.min(segundos * 1000, 60_000)
+    if (Number.isFinite(segundos) && segundos >= 0) return Math.min(segundos * 1000, 120_000)
   }
-  const teto = Math.min(1000 * 2 ** (tentativa - 1), 30_000)
+  const teto = Math.min(base * 2 ** (tentativa - 1), 120_000)
   return Math.round(teto / 2 + Math.random() * (teto / 2))
 }

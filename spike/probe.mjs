@@ -53,6 +53,16 @@ function lerOpcoes(argv) {
     sondarRateLimit: bandeiras.has('rate-limit-probe'),
     rajada: Number(bandeiras.get('rajada') ?? 25),
     verboso: bandeiras.has('verboso'),
+    // A API pública é lenta (~40 s por consulta) e a chave é COMPARTILHADA por todos
+    // os consumidores do país, então 429 é ruído de fundo que não depende do nosso
+    // ritmo. Permite rodar um subconjunto e gastar a cota onde ela rende mais.
+    sondagens: bandeiras.get('sondagens')
+      ? String(bandeiras.get('sondagens'))
+          .toUpperCase()
+          .split(',')
+          .map((s) => s.trim())
+          .filter(Boolean)
+      : null,
   }
 }
 
@@ -75,6 +85,24 @@ async function main() {
         '',
         'A chave vigente é publicada em:',
         '  https://datajud-wiki.cnj.jus.br/api-publica/acesso',
+      ].join('\n'),
+    )
+    process.exitCode = 1
+    return
+  }
+
+  // O `fetch` embutido do Node IGNORA HTTPS_PROXY a menos que NODE_USE_ENV_PROXY=1
+  // esteja definido na PARTIDA do processo (não dá para ligar daqui). Em ambiente
+  // com proxy de egresso, sem isso toda requisição falha por timeout sem explicação.
+  const temProxy = process.env.HTTPS_PROXY ?? process.env.https_proxy
+  if (temProxy && process.env.NODE_USE_ENV_PROXY !== '1') {
+    console.error(
+      [
+        'ERRO: há proxy de egresso configurado (HTTPS_PROXY) mas NODE_USE_ENV_PROXY não está em 1.',
+        'O fetch do Node ignoraria o proxy e toda requisição morreria em timeout.',
+        '',
+        'Rode assim:',
+        '  NODE_USE_ENV_PROXY=1 node spike/probe.mjs',
       ].join('\n'),
     )
     process.exitCode = 1
@@ -154,6 +182,10 @@ async function main() {
     ['P10', probes.p10Latencia],
   ]
 
+  const selecionadas = opcoes.sondagens
+    ? roteiro.filter(([id]) => opcoes.sondagens.includes(id))
+    : roteiro
+
   const achados = []
   const falhas = []
 
@@ -161,7 +193,11 @@ async function main() {
   console.log(`base: ${process.env.DATAJUD_BASE_URL ?? BASE_URL_PADRAO}`)
   console.log(`alias principal: ${opcoes.alias} | rate limit: 1 req / ${cliente.minIntervaloMs} ms\n`)
 
-  for (const [id, sondagem] of roteiro) {
+  if (opcoes.sondagens) {
+    console.log(`sondagens selecionadas: ${selecionadas.map(([id]) => id).join(', ')}\n`)
+  }
+
+  for (const [id, sondagem] of selecionadas) {
     process.stdout.write(`→ ${id} ${sondagem.name} ... `)
     try {
       const achado = await sondagem(ctx)
